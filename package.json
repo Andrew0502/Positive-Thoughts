@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Andrew0502/Postive-Thoughts.git"
+    "url": "git+https://github.com/Andrew0502/Positive-Thoughts.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Andrew0502/Postive-Thoughts/issues"
+    "url": "https://github.com/Andrew0502/Positive-Thoughts/issues"
   },
-  "homepage": "https://github.com/Andrew0502/Postive-Thoughts#readme",
+  "homepage": "https://github.com/Andrew0502/Positive-Thoughts#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
