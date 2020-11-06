@@ -26,24 +26,24 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link" href="./About.jsx">
+                <Link to="/" className="nav-link">
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="./Hotlines.jsx">
+                <Link to="./Hotlines.jsx" className="nav-link">
                   HotLines
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="./Prompts.jsx">
+                <Link to="./Prompts.jsx" className="nav-link">
                   Prompts
-                </a>
+                </Link>
               </li>
               <li className="nav-item active">
-                <a className="nav-link" href="./Profile.jsx">
+                <Link to="./Profile.jsx" className="nav-link">
                   Profile<span className="sr-only">(current)</span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a
@@ -54,9 +54,9 @@ const Navbar = () => {
                 ></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="./SignIn.jsx">
+                <Link to="/" className="nav-link" href="./SignIn.jsx">
                   LogOut
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
