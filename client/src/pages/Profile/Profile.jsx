@@ -2,9 +2,16 @@ import React from 'react';
 
 const Profile = () => {
     return (
-        <div>
-            <h1>Profile</h1>
-        </div>
+        <main className="content">
+            <div className="container">
+                <div className="row">
+                    <section className="col-sm-12">
+                    <h1>Profile</h1>
+                    
+                    </section>
+                </div>
+            </div>
+        </main>
     );
 };
 
