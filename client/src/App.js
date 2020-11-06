@@ -24,18 +24,22 @@ function App() {
       });
   }, []);
   return (
-    <Router>
-      <div>
-        <Switch>
-          <Route exact path="/about" component={About} />
-          <Route exact path="/hotlines" component={Hotlines} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/prompts" component={Prompts} />
-          <Route exact path="/" component={SignIn} />
-          <Route exact path="/sign-up" component={SignUp} />
-        </Switch>
-      </div>
-    </Router>
+    <>
+   
+<Router>
+<Navbar/>
+    <div>
+      <Switch>
+        <Route exact path="/about" component={About} />
+        <Route exact path="/hotlines" component={Hotlines} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/prompts" component={Prompts} />
+        <Route exact path="/" component={SignIn} />
+        <Route exact path="/sign-up" component={SignUp} />
+      </Switch>
+    </div>
+</Router>
+    </>
   );
 }
 
