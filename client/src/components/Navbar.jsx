@@ -19,21 +19,23 @@ const Navbar = () => {
             <Link to="./" className="nav-link">
               Sign In<span className="sr-only">(current)</span>
             </Link>
+            <Link to="./profile" className="nav-link">
+              Profile
+            </Link>
             <Link to="./prompts" className="nav-link">
               Prompts
             </Link>
             <Link to="./hotlines" className="nav-link">
               HotLines
             </Link>
-            <Link to="/logout" className="nav-link">
+            <Link to="./logout" className="nav-link">
               Log Out
             </Link>
           </div>
         </div>
         <nav className="navbar navbar-dark bg-dark">
           <Router>
-
-            <Link to="/" className="nav-link" href="./about">
+            <Link to="./about" className="nav-link">
               Positive Thoughts
             </Link>
             <button
@@ -52,7 +54,7 @@ const Navbar = () => {
               id="navbarSupportedContent"
             >
               {/* <ul className="navbar-nav ml-auto"> */}
-                {/* <li className="nav-item">
+              {/* <li className="nav-item">
                   <Link to="/" className="nav-link">
                     About
                   </Link>
@@ -77,13 +79,13 @@ const Navbar = () => {
                     LogOut
                   </Link>
                 </li> */}
-                <Switch>
-                  <Route exact path="./" component={SignIn} />
-                  <Route exact path="./hotlines" component={Hotlines} />
-                  <Route exact path="./profile" component={Profile} />
-                  <Route exact path="./prompts" component={Prompts} />
-                  <Route exact path="./sign-up" component={SignUp} />
-                </Switch>
+              <Switch>
+                <Route exact path="./" component={SignIn} />
+                <Route exact path="./hotlines" component={Hotlines} />
+                <Route exact path="./profile" component={Profile} />
+                <Route exact path="./prompts" component={Prompts} />
+                <Route exact path="./sign-up" component={SignUp} />
+              </Switch>
               {/* </ul> */}
             </div>
           </Router>
