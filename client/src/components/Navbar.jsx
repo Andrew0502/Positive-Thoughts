@@ -31,7 +31,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="./HotLines.jsx">
+                <a className="nav-link" href="./Hotlines.jsx">
                   HotLines
                 </a>
               </li>
@@ -41,7 +41,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li className="nav-item active">
-                <a className="nav-link" href="./profile.jsx">
+                <a className="nav-link" href="./Profile.jsx">
                   Profile<span className="sr-only">(current)</span>
                 </a>
               </li>
