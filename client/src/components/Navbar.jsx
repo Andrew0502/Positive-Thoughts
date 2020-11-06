@@ -25,39 +25,34 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
+            <Router>
               <li className="nav-item">
                 <Link to="/" className="nav-link">
                   About
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="./Hotlines.jsx" className="nav-link">
+                <Link to="./Hotlines" className="nav-link">
                   HotLines
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="./Prompts.jsx" className="nav-link">
+                <Link to="./Prompts" className="nav-link">
                   Prompts
                 </Link>
               </li>
               <li className="nav-item active">
-                <Link to="./Profile.jsx" className="nav-link">
+                <Link to="./Profile" className="nav-link">
                   Profile<span className="sr-only">(current)</span>
                 </Link>
               </li>
               <li className="nav-item">
-                <a
-                  className="nav-link disabled"
-                  href="#"
-                  tabindex="-1"
-                  aria-disabled="true"
-                ></a>
-              </li>
-              <li className="nav-item">
-                <Link to="/" className="nav-link" href="./SignIn.jsx">
+                <Link to="/" className="nav-link" href="./SignIn">
                   LogOut
                 </Link>
               </li>
+            </Router>
+
             </ul>
           </div>
         </nav>

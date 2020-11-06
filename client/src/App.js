@@ -9,8 +9,10 @@ import Profile from "./pages/Profile/Profile.jsx";
 import Prompts from "./pages/Prompts/Prompts.jsx";
 import SignIn from "./pages/SignIn/SignIn.jsx";
 import SignUp from "./pages/SignUp/SignUp.jsx";
+import Navbar from "./components/Navbar.jsx";
 
 function App() {
+
   useEffect(() => {
     console.log("Make an API call");
     axios
@@ -25,6 +27,7 @@ function App() {
   return (
 <Router>
     <div>
+    <Navbar/>
       <Switch>
         <Route exact path="/about" component={About} />
         <Route exact path="/hotlines" component={Hotlines} />
