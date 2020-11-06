@@ -16,26 +16,24 @@ const Navbar = () => {
             <h5 className="text-white h4">Collapsed content</h5>
             <span className="text-muted">Toggleable via the navbar brand.</span>
 
-            <Link to="./Profile" className="nav-link">
+            <Link to="./" className="nav-link">
               Profile<span className="sr-only">(current)</span>
             </Link>
-            <Link to="./Prompts" className="nav-link">
+            <Link to="./prompts" className="nav-link">
               Prompts
             </Link>
-            <Link to="./Hotlines" className="nav-link">
+            <Link to="./hotlines" className="nav-link">
               HotLines
             </Link>
-            <Link to="/" className="nav-link" href="./LogOut">
+            <Link to="/logout" className="nav-link">
               Log Out
             </Link>
           </div>
         </div>
         <nav className="navbar navbar-dark bg-dark">
           <Router>
-            <Link to="/SignIn" className="nav-link">
-              Home
-            </Link>
-            <Link to="/" className="nav-link" href="./SignIn">
+
+            <Link to="/" className="nav-link" href="./signin">
               Sign In
             </Link>
             <button
