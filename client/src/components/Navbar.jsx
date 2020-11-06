@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 import Hotlines from "../../src/pages/Hotlines/Hotlines";
+import About from "../pages/About/About";
 import Profile from "../pages/Profile/Profile";
 import Prompts from "../pages/Prompts/Prompts";
 import SignIn from "../pages/SignIn/SignIn";
@@ -34,10 +35,11 @@ const Navbar = () => {
           </div>
         </div>
         <nav className="navbar navbar-dark bg-dark">
-          <Router>
-            <Link to="./about" className="nav-link">
+          
+            <Link to="./About" className="nav-link">
               Positive Thoughts
             </Link>
+            <Router>
             <button
               className="navbar-toggler"
               type="button"
@@ -81,6 +83,7 @@ const Navbar = () => {
                 </li> */}
               <Switch>
                 <Route exact path="./" component={SignIn} />
+                <Route exact path="./about" component={About} />
                 <Route exact path="./hotlines" component={Hotlines} />
                 <Route exact path="./profile" component={Profile} />
                 <Route exact path="./prompts" component={Prompts} />
