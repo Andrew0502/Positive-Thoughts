@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(express.static("client/build"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/positivethoughts", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/positive-thoughts", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
