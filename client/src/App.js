@@ -27,7 +27,6 @@ function App() {
   return (
 <Router>
     <div>
-    <Navbar/>
       <Switch>
         <Route exact path="/about" component={About} />
         <Route exact path="/hotlines" component={Hotlines} />
