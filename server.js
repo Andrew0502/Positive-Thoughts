@@ -32,8 +32,8 @@ connection.on("error", (err) => {
 });
 
 var CronJob = require('cron').CronJob;
-var job = new CronJob('* * * * * *', function() {
-  console.log('You will see this message every second');
+var job = new CronJob('* * * * *', function() {
+  console.log('You will see this message every minute');
   // call a function in here. query all of the users, finding the ones that opted in. Take the users info and send that to the twilio functionality.
 }, null, true, 'America/Los_Angeles');
 
