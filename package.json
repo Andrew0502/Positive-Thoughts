@@ -30,7 +30,8 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.10.11",
     "path": "^0.12.7",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "twilio": "^3.51.0"
   },
   "devDependencies": {
     "concurrently": "^5.3.0"
