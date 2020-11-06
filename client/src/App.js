@@ -1,7 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
+import About from "./pages/About/About.jsx";
+import Hotlines from "./pages/Hotlines/Hotlines.jsx";
+import Profile from "./pages/Profile/Profile.jsx";
+import Prompts from "./pages/Prompts/Prompts.jsx";
+import SignIn from "./pages/SignIn/SignIn.jsx";
+import SignUp from "./pages/SignUp/SignUp.jsx";
 
 function App() {
   useEffect(() => {
@@ -16,22 +23,18 @@ function App() {
       });
   }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+<Router>
+    <div>
+      <Switch>
+        <Route exact path="/about" component={About} />
+        <Route exact path="/hotlines" component={Hotlines} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/prompts" component={Prompts} />
+        <Route exact path="/" component={SignIn} />
+        <Route exact path="/sign-up" component={SignUp} />
+      </Switch>
     </div>
+</Router>
   );
 }
 
