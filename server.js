@@ -31,6 +31,12 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
+var CronJob = require('cron').CronJob;
+var job = new CronJob('* * * * * *', function() {
+  console.log('You will see this message every second');
+  // call a function in here. query all of the users, finding the ones that opted in. Take the users info and send that to the twilio functionality.
+}, null, true, 'America/Los_Angeles');
+
 app.get("/api/config", (req, res) => {
   res.json({
     success: true,
@@ -42,5 +48,6 @@ app.get("*", (req, res) => {
   });
 
 app.listen(PORT, () => {
+  job.start();
   console.log(`App is running on http://localhost:${PORT}`);
 });
