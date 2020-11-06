@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
@@ -12,7 +12,6 @@ import SignUp from "./pages/SignUp/SignUp.jsx";
 import Navbar from "./components/Navbar.jsx";
 
 function App() {
-
   useEffect(() => {
     console.log("Make an API call");
     axios
@@ -25,19 +24,18 @@ function App() {
       });
   }, []);
   return (
-<Router>
-    <div>
-    <Navbar/>
-      <Switch>
-        <Route exact path="/about" component={About} />
-        <Route exact path="/hotlines" component={Hotlines} />
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/prompts" component={Prompts} />
-        <Route exact path="/" component={SignIn} />
-        <Route exact path="/sign-up" component={SignUp} />
-      </Switch>
-    </div>
-</Router>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/about" component={About} />
+          <Route exact path="/hotlines" component={Hotlines} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/prompts" component={Prompts} />
+          <Route exact path="/" component={SignIn} />
+          <Route exact path="/sign-up" component={SignUp} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
