@@ -25,7 +25,10 @@ function App() {
       });
   }, []);
   return (
+    <>
+   
 <Router>
+<Navbar/>
     <div>
       <Switch>
         <Route exact path="/about" component={About} />
@@ -37,6 +40,7 @@ function App() {
       </Switch>
     </div>
 </Router>
+    </>
   );
 }
 

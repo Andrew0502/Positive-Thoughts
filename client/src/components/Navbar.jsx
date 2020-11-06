@@ -10,14 +10,14 @@ import SignUp from "../pages/SignUp/SignUp";
 const Navbar = () => {
   return (
     <div>
-      <div className="fixed-top">
+      <div>
         <div className="collapse" id="navbarToggleExternalContent">
           <div className="bg-dark p-4">
             <h5 className="text-white h4">Collapsed content</h5>
             <span className="text-muted">Toggleable via the navbar brand.</span>
 
             <Link to="./" className="nav-link">
-              Profile<span className="sr-only">(current)</span>
+              Sign In<span className="sr-only">(current)</span>
             </Link>
             <Link to="./prompts" className="nav-link">
               Prompts
@@ -33,8 +33,8 @@ const Navbar = () => {
         <nav className="navbar navbar-dark bg-dark">
           <Router>
 
-            <Link to="/" className="nav-link" href="./signin">
-              Sign In
+            <Link to="/" className="nav-link" href="./about">
+              Positive Thoughts
             </Link>
             <button
               className="navbar-toggler"
@@ -51,8 +51,8 @@ const Navbar = () => {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
+              {/* <ul className="navbar-nav ml-auto"> */}
+                {/* <li className="nav-item">
                   <Link to="/" className="nav-link">
                     About
                   </Link>
@@ -76,16 +76,15 @@ const Navbar = () => {
                   <Link to="/" className="nav-link" href="./SignIn">
                     LogOut
                   </Link>
-                </li>
+                </li> */}
                 <Switch>
-                  <Route exact path="/" component={SignIn} />
-                  <Route exact path="/hotlines" component={Hotlines} />
-                  <Route exact path="/profile" component={Profile} />
-                  <Route exact path="/prompts" component={Prompts} />
-
-                  <Route exact path="/sign-up" component={SignUp} />
+                  <Route exact path="./" component={SignIn} />
+                  <Route exact path="./hotlines" component={Hotlines} />
+                  <Route exact path="./profile" component={Profile} />
+                  <Route exact path="./prompts" component={Prompts} />
+                  <Route exact path="./sign-up" component={SignUp} />
                 </Switch>
-              </ul>
+              {/* </ul> */}
             </div>
           </Router>
         </nav>
