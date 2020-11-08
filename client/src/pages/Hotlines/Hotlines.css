@@ -4,4 +4,8 @@
 
 #PhoneNumbers {
     color: red;
+    border-color: black;
+    border-style: solid;
+    width: 70%;
+    margin: auto;
 }
