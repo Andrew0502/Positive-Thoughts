@@ -4,12 +4,14 @@ import "./Hotlines.css";
 const Hotlines = () => {
     return (
         <div id="HotlineInfo">
+            <div><br/></div>
             <h1>It's never a bad time to seek help</h1>
             <div><br/></div>
             <h1>YOU ARE NOT ALONE</h1>
             <div><br/></div>
             <div><br/></div>
             <section id="PhoneNumbers">
+            <div><br/></div>
             <h2>National Suicide Prevention Lifeline Veterans Crisis Line</h2>
             <h2>1-800-273-8255</h2>
             <div><br/></div>
