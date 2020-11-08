@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   full_name: { type: String, required: true },
   phone_number: { type: String, required: true },
-  birthday: { type: Date },
+//   birthday: { type: Date },
 //   password: { type: String, required: true },
   messages: { type: Array }
 });
 
-const Book = mongoose.model("Book", bookSchema);
+const User = mongoose.model("User", userSchema);
 
-module.exports = Book;
+module.exports = User;
