@@ -1,4 +1,4 @@
-import './App.css';
+import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
@@ -11,7 +11,6 @@ import SignUp from "./pages/SignUp/SignUp.jsx";
 import Navbar from "./components/Navbar.jsx";
 
 function App() {
-
   useEffect(() => {
     console.log("Make an API call");
     axios

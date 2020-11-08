@@ -1,3 +1,4 @@
 module.exports = {
-    Prompt: require("./PromptModel")
+    Prompt: require("./PromptModel"),
+    User: require("./UserModel")
 }
