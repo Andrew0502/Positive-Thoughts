@@ -9,7 +9,7 @@ const Hotlines = () => {
             <h1>YOU ARE NOT ALONE</h1>
             <div><br/></div>
             <div><br/></div>
-            <container>
+            <section id="PhoneNumbers">
             <h2>National Suicide Prevention Lifeline Veterans Crisis Line</h2>
             <h2>1-800-273-8255</h2>
             <div><br/></div>
@@ -22,7 +22,7 @@ const Hotlines = () => {
             <h2>BlackLifeline</h2>
             <h2>1-800-604-5841</h2>
             <div><br/></div>
-            </container>
+            </section>
 
 
         </div>
