@@ -6,12 +6,12 @@ const Profile = () => {
       <h1>Profile</h1>
       <form>
         <div class="form-group">
-          <label for="fullName">Full Name</label>
+          <label for="full_name">Full Name</label>
           <input
             type="text"
             class="form-control"
-            id="fullName"
-            name="fullName"
+            id="full_name"
+            name="full_name"
             aria-describedby="nameHelp"
           />
           <small id="nameHelp" class="form-text text-muted">
@@ -28,12 +28,12 @@ const Profile = () => {
           />
         </div>
         <div class="form-group">
-          <label for="phoneNumber">Phone Number</label>
+          <label for="phone_number">Phone Number</label>
           <input
-            type="number"
+            type="text"
             class="form-control"
-            id="phoneNumber"
-            name="phoneNumber"
+            id="phone_number"
+            name="phone_number"
           />
         </div>
         <div class="form-group form-check">
