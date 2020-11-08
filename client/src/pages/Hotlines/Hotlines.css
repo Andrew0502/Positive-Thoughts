@@ -2,10 +2,13 @@
     text-align: center;
 }
 
-#PhoneNumbers {
-    color: red;
+#ContactInfo {
     border-color: black;
     border-style: solid;
     width: 70%;
     margin: auto;
+}
+
+.PhoneNumbers {
+    color: red;
 }
