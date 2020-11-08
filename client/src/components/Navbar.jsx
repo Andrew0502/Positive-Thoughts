@@ -14,12 +14,6 @@ const Navbar = () => {
       <div>
         <div className="collapse" id="navbarToggleExternalContent">
           <div className="bg-dark p-4">
-            <h5 className="text-white h4">Collapsed content</h5>
-            <span className="text-muted">Toggleable via the navbar brand.</span>
-
-            <Link to="./" className="nav-link">
-              Sign In<span className="sr-only">(current)</span>
-            </Link>
             <Link to="./profile" className="nav-link">
               Profile
             </Link>
@@ -35,7 +29,6 @@ const Navbar = () => {
           </div>
         </div>
         <nav className="navbar navbar-dark bg-dark">
-          
             <Link to="./About" className="nav-link">
               Positive Thoughts
             </Link>
