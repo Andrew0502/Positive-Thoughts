@@ -1,8 +1,9 @@
 import React from 'react';
+import "./Hotlines.css";
 
 const Hotlines = () => {
     return (
-        <div>
+        <div id="HotlineInfo">
             <h1>It's never a bad time to seek help</h1>
             <div><br/></div>
             <h1>YOU ARE NOT ALONE</h1>
