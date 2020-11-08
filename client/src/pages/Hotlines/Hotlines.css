@@ -1,0 +1,14 @@
+#HotlineInfo {
+    text-align: center;
+}
+
+#ContactInfo {
+    border-color: black;
+    border-style: solid;
+    width: 80%;
+    margin: auto;
+}
+
+.PhoneNumbers {
+    color: red;
+}
