@@ -1,5 +1,31 @@
 import React from "react";
 
+// export function RecipeListItem({
+//     thumbnail,
+//     title,
+//     ingredients,
+//     href
+//   }) {
+//     return (
+//       <li className="list-group-item">
+//         <Container>
+//           <Row>
+//             <Col size="xs-4 sm-2">
+//               <Thumbnail src={thumbnail || "https://placehold.it/300x300"} />
+//             </Col>
+//             <Col size="xs-8 sm-9">
+//               <h3>{title}</h3>
+//               <p>Ingredients: {ingredients}</p>
+//               <a rel="noreferrer noopener" target="_blank" href={href}>
+//                 Go to recipe!
+//               </a>
+//             </Col>
+//           </Row>
+//         </Container>
+//       </li>
+//     );
+//   }
+
 const Profile = () => {
   return (
     <div>
@@ -11,7 +37,7 @@ const Profile = () => {
             type="text"
             class="form-control"
             id="fullName"
-            name="fullName"
+            name={fullName}
             aria-describedby="nameHelp"
           />
           <small id="nameHelp" class="form-text text-muted">
