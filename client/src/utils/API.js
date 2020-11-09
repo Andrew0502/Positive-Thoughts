@@ -7,6 +7,7 @@
 import axios from "axios";
 
 export default {
+
     getProfile: function(id) {
     return axios.get("/api/profile/" + id);
   }
