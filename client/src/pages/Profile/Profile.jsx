@@ -3,24 +3,20 @@ import Navbar from "../../components/Navbar";
 import { Link, useParams } from "react-router-dom";
 import API from "../../utils/API"; 
 
-<<<<<<< HEAD
-const Profile = () => {
-<<<<<<< HEAD
-    return (
-        <main className="content">
-            <div className="container">
-                <div className="row">
-                    <section className="col-sm-12">
-                    <h1>Profile</h1>
+// const Profile = () => {
+//     return (
+//         <main className="content">
+//             <div className="container">
+//                 <div className="row">
+//                     <section className="col-sm-12">
+//                     <h1>Profile</h1>
                     
-                    </section>
-                </div>
-            </div>
-        </main>
-    );
-=======
-  return (
-=======
+//                     </section>
+//                 </div>
+//             </div>
+//         </main>
+//     );
+//   return (
 // function Detail(props) {
 //     const [user, setUser] = useState({})
 
@@ -55,7 +51,6 @@ function Profile() {
     }, [])
 
     return (
->>>>>>> 6e5c9c3f36b7e5f99583e1345da9bfee277def60
     <div>
       <Navbar/>
       <h1>Profile</h1>
@@ -107,7 +102,6 @@ function Profile() {
       </form> */}
     </div>
   );
->>>>>>> 9d934381e82718b23ff6ace80dd597f7937374da
 };
 
 export default Profile;
