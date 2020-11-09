@@ -3,3 +3,11 @@
 // return axios.post
 
 // module.exports = whatever
+
+import axios from "axios";
+
+export default {
+    getProfile: function(id) {
+    return axios.get("/api/profile/" + id);
+  }
+}
