@@ -27,11 +27,24 @@ function Profile() {
               <h1>Profile</h1>
             </div>
           </section>
-          <section className="profile-info">
-            <h2>{user.fullName}</h2>
-            <h2>{user.phoneNumber}</h2>
-            <h2>{user.username}</h2>
+          <section className="row profile-info">
+            <div className="col-sm-6">
+              <h4>Full Name</h4>
+            </div>            
+            <div className="col-sm-6">
+                <h4>{user.fullName}</h4>
+            </div>
+            <div><hr/></div>
+            <div className="col-sm-6">
+              <h4>Phone Number</h4>
+            </div>
+            <div className="col-sm-6">
+              <h2>{user.phoneNumber}</h2>
+            </div>
+            <div><hr/></div>
+            <div><hr/></div>
             <h2>{user.birthday}</h2>
+            <div><hr/></div>
             <h2>{user.email}</h2>
           </section>
           <h5>Edit Info</h5>
@@ -46,9 +59,6 @@ function Profile() {
             name="full_name"
             aria-describedby="nameHelp"
           />
-          <small id="nameHelp" className="form-text text-muted">
-            We'll never share your information with anyone else.
-          </small>
         </div>
         <div className="form-group">
           <label for="birthday">Birthday</label>
@@ -67,12 +77,6 @@ function Profile() {
             id="phone_number"
             name="phone_number"
           />
-        </div>
-        <div className="form-group form-check">
-          <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-          <label className="form-check-label" for="exampleCheck1">
-            Remember Me
-          </label>
         </div>
         <button type="submit" className="btn btn-primary">
           Submit
