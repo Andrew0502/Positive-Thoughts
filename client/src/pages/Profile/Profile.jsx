@@ -26,15 +26,15 @@ import API from "../../utils/API";
 
 function Profile() {
 
-    const [user, setUser] = useState("")
+    const [user, setUser] = useState({})
 
     const {id} = useParams()
 
     useEffect(() =>{
-        API.getUser(id)
+        API.getUser("5fa867e13f5a6825d017745a")
         .then(res=>setUser(res.data))
         .catch(err=> console.log(err));
-    }, [])
+    }, [id])
 
     return (
     <div>
