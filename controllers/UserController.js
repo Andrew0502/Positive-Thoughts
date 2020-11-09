@@ -1,5 +1,5 @@
 const express = require("express");
-const db = require("../models/UserModel");
+const db = require("../models");
 
 const router = express.Router();
 
@@ -9,21 +9,11 @@ const router = express.Router();
 //   });
 // });
 
-router.get("/profile/:id", (req, res) => {
-  db.User.findOne({
-    where: {
-      id: req.params.id,
-    },
-    include: db.User,
-  })
+router.get("/:id", (req, res) => {
+  db.User.findById(req.params.id)
     .then((foundUser) => {
       console.log(foundUser);
-      res.render("users/single-user", {
-        fullName: foundUser.fullName,
-        birthday: foundUser.birthday,
-        phoneNumber: foundUser.phoneNumber,
-        username: foundUser.username,
-      });
+      res.json(foundUser);
     })
     .catch((err) => {
       console.log(err);
