@@ -10,5 +10,9 @@ export default {
 
     getUser: function(id) {
     return axios.get("/api/user/" + id);
-  }
+  },
+
+    login: function(email) {
+      return axios.post("/api/user/login", email)
+    }
 }

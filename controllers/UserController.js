@@ -10,6 +10,7 @@ const router = express.Router();
 // });
 
 router.get("/:id", (req, res) => {
+  console.log(req.params.id);
   db.User.findById(req.params.id)
     .then((foundUser) => {
       console.log(foundUser);
@@ -32,6 +33,7 @@ router.post("/sign-up", (req, res) => {
     phoneNumber: req.body.phoneNumber,
     username: req.body.username,
     password: req.body.password,
+    email: req.body.email
   };
   db.User.create(newUser).then((newUser) => {
     res.json(newUser);
@@ -39,8 +41,14 @@ router.post("/sign-up", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
+  console.log(req.body);
   db.User.findOne({email:req.body.email}).then((foundUser) => {
-    res.json(foundUser);
+    if (foundUser.password === req.body.password){
+      res.json(foundUser);
+    }
+    else {
+      res.status(401).json("User not authorized");
+    }
   });
 });
 
