@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
+import { Link, useParams } from "react-router-dom";
+import API from "../../utils/API"; 
 
+<<<<<<< HEAD
 const Profile = () => {
 <<<<<<< HEAD
     return (
@@ -17,10 +20,50 @@ const Profile = () => {
     );
 =======
   return (
+=======
+// function Detail(props) {
+//     const [user, setUser] = useState({})
+
+//     const {id} = useParams()
+
+// useEffect(()=> {
+//       API.getUser(id)
+//       .then(res=>setUser(res.data))
+//       .catch(err=> console.log(err)):
+// }, [])
+
+// return (
+//     <h1> Welcome {{user.fullName}}!</h1>
+//     <ul>
+//          <li>Your Birthday is {{user.birthday}}</li>
+//          <li>Your Phone Number is {{user.phoneNumber}}</li>
+//          <li>Your Username is {{user.username}}</li>
+//    </ul>
+// );
+// }
+
+function Profile() {
+
+    const [user, setUser] = useState("")
+
+    const {id} = useParams()
+
+    useEffect(() =>{
+        API.getUser(id)
+        .then(res=>setUser(res.data))
+        .catch(err=> console.log(err));
+    }, [])
+
+    return (
+>>>>>>> 6e5c9c3f36b7e5f99583e1345da9bfee277def60
     <div>
       <Navbar/>
       <h1>Profile</h1>
-      <form>
+      <h2>{user.fullName}</h2>
+    <h2>{user.phoneNumber}</h2>
+    <h2>{user.username}</h2>
+    <h2>{user.birthday}</h2>
+      {/* <form>
         <div className="form-group">
           <label for="full_name">Full Name</label>
           <input
@@ -61,7 +104,7 @@ const Profile = () => {
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
-      </form>
+      </form> */}
     </div>
   );
 >>>>>>> 9d934381e82718b23ff6ace80dd597f7937374da
