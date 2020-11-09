@@ -18,7 +18,7 @@ function Profile() {
     }, [id])
 
     return (
-    <div>
+    <body>
       <Navbar/>
       <main className="content">
         <div className="container">
@@ -80,7 +80,7 @@ function Profile() {
       </form>
       </div>
       </main>
-    </div>
+    </body>
   );
 };
 
