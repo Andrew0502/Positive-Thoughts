@@ -4,11 +4,6 @@ form {
   text-align: center;
 }
 
-/* form {
-  justify-content: center;
-  width: 25%;
-} */
-
 input {
   width: 25% !important;
   margin: auto;

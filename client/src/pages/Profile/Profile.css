@@ -1,0 +1,18 @@
+h1,
+button,
+form {
+  text-align: center;
+}
+
+input {
+  width: 25% !important;
+  margin: auto;
+}
+
+.profile-info {
+  text-align: center;
+  border-color: black;
+  border-style: solid;
+  width: 80%;
+  margin: auto;
+}
