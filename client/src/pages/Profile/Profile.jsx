@@ -3,20 +3,6 @@ import Navbar from "../../components/Navbar";
 import { Link, useParams } from "react-router-dom";
 import API from "../../utils/API"; 
 
-// const Profile = () => {
-//     return (
-//         <main className="content">
-//             <div className="container">
-//                 <div className="row">
-//                     <section className="col-sm-12">
-//                     <h1>Profile</h1>
-                    
-//                     </section>
-//                 </div>
-//             </div>
-//         </main>
-//     );
-//   return (
 // function Detail(props) {
 //     const [user, setUser] = useState({})
 
