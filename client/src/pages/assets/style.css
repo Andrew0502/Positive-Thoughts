@@ -1,0 +1,10 @@
+h1,
+button,
+form {
+  text-align: center;
+}
+
+form {
+  justify-content: center;
+  width: 25% !important;
+}

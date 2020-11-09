@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "../../components/Navbar";
 
 const Profile = () => {
 <<<<<<< HEAD
@@ -17,6 +18,7 @@ const Profile = () => {
 =======
   return (
     <div>
+      <Navbar/>
       <h1>Profile</h1>
       <form>
         <div className="form-group">

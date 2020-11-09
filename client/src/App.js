@@ -1,4 +1,4 @@
-import './App.css';
+import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
@@ -8,10 +8,9 @@ import Profile from "./pages/Profile/Profile.jsx";
 import Prompts from "./pages/Prompts/Prompts.jsx";
 import SignIn from "./pages/SignIn/SignIn.jsx";
 import SignUp from "./pages/SignUp/SignUp.jsx";
-import Navbar from "./components/Navbar.jsx";
+// import Navbar from "./components/Navbar.jsx";
 
 function App() {
-
   useEffect(() => {
     console.log("Make an API call");
     axios
@@ -27,7 +26,7 @@ function App() {
     <>
    
 <Router>
-<Navbar/>
+{/* <Navbar/> */}
     <div>
       <Switch>
         <Route exact path="/about" component={About} />
