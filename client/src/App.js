@@ -8,7 +8,7 @@ import Profile from "./pages/Profile/Profile.jsx";
 import Prompts from "./pages/Prompts/Prompts.jsx";
 import SignIn from "./pages/SignIn/SignIn.jsx";
 import SignUp from "./pages/SignUp/SignUp.jsx";
-import Navbar from "./components/Navbar.jsx";
+// import Navbar from "./components/Navbar.jsx";
 
 function App() {
   useEffect(() => {
@@ -26,7 +26,7 @@ function App() {
     <>
    
 <Router>
-<Navbar/>
+{/* <Navbar/> */}
     <div>
       <Switch>
         <Route exact path="/about" component={About} />
