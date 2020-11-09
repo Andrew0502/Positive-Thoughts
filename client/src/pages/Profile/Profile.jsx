@@ -31,7 +31,7 @@ function Profile() {
     const {id} = useParams()
 
     useEffect(() =>{
-        API.getUser("5fa867e13f5a6825d017745a")
+        API.getUser(sessionStorage.getItem("currentUsers"))
         .then(res=>setUser(res.data))
         .catch(err=> console.log(err));
     }, [id])
@@ -40,7 +40,7 @@ function Profile() {
     <div>
       <Navbar/>
       <h1>Profile</h1>
-      <h2>{user.fullName}</h2>
+      <h2>{user.firstName}</h2>
     <h2>{user.phoneNumber}</h2>
     <h2>{user.username}</h2>
     <h2>{user.birthday}</h2>
