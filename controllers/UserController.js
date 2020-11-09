@@ -33,8 +33,14 @@ router.post("/sign-up", (req, res) => {
     username: req.body.username,
     password: req.body.password,
   };
-  db.create(newUser).then((newUser) => {
+  db.User.create(newUser).then((newUser) => {
     res.json(newUser);
+  });
+});
+
+router.post("/login", (req, res) => {
+  db.User.findOne({email:req.body.email}).then((foundUser) => {
+    res.json(foundUser);
   });
 });
 
