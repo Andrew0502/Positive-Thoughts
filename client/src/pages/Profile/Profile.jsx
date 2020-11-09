@@ -12,7 +12,7 @@ function Profile() {
     const {id} = useParams()
 
     useEffect(() =>{
-        API.getUser("5fa867e13f5a6825d017745a")
+        API.getUser(sessionStorage.getItem("currentUsers"))
         .then(res=>setUser(res.data))
         .catch(err=> console.log(err));
     }, [id])
@@ -39,13 +39,21 @@ function Profile() {
               <h4>Phone Number</h4>
             </div>
             <div className="col-sm-6">
-              <h2>{user.phoneNumber}</h2>
+              <h4>{user.phoneNumber}</h4>
+            </div>
+            <div className="col-sm-6">
+              <h4>Date of Birth</h4>
+            </div>
+            <div className="col-sm-6">
+              <h4>{user.birthday}</h4>
             </div>
             <div><hr/></div>
-            <div><hr/></div>
-            <h2>{user.birthday}</h2>
-            <div><hr/></div>
-            <h2>{user.email}</h2>
+            <div className="col-sm-6">
+              <h4>Email</h4>
+            </div>
+            <div className="col-sm-6">
+              <h4>{user.email}</h4>
+            </div>
           </section>
           <h5>Edit Info</h5>
           <button type="button" className="btn btn-primary">Edit</button>
