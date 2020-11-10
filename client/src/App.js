@@ -8,6 +8,7 @@ import Profile from "./pages/Profile/Profile.jsx";
 import Prompts from "./pages/Prompts/Prompts.jsx";
 import SignIn from "./pages/SignIn/SignIn.jsx";
 import SignUp from "./pages/SignUp/SignUp.jsx";
+import Edit from "./pages/Edit/Edit.jsx";
 // import Navbar from "./components/Navbar.jsx";
 
 function App() {
@@ -24,20 +25,20 @@ function App() {
   }, []);
   return (
     <>
-   
-<Router>
-{/* <Navbar/> */}
-    <div>
-      <Switch>
-        <Route exact path="/about" component={About} />
-        <Route exact path="/hotlines" component={Hotlines} />
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/prompts" component={Prompts} />
-        <Route exact path="/" component={SignIn} />
-        <Route exact path="/sign-up" component={SignUp} />
-      </Switch>
-    </div>
-</Router>
+      <Router>
+        {/* <Navbar/> */}
+        <div>
+          <Switch>
+            <Route exact path="/about" component={About} />
+            <Route exact path="/hotlines" component={Hotlines} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/edit" component={Edit} />
+            <Route exact path="/prompts" component={Prompts} />
+            <Route exact path="/" component={SignIn} />
+            <Route exact path="/sign-up" component={SignUp} />
+          </Switch>
+        </div>
+      </Router>
     </>
   );
 }

@@ -1,7 +1,5 @@
-import React from 'react';
 import "./SignIn.css"
 import React, { useEffect, useState } from "react";
-import "../assets/style.css";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 

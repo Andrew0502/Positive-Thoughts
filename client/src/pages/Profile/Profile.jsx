@@ -28,36 +28,51 @@ function Profile() {
             </div>
           </section>
           <section className="row profile-info">
-            <div className="col-sm-6">
-              <h4>Full Name</h4>
+            <div className="col-sm-6 descriptions">
+              <h4>Name</h4>
             </div>            
             <div className="col-sm-6">
-                <h4>{user.fullName}</h4>
+                <h4 className="filled-in">{user.fullName}Jamie Jones</h4>
             </div>
-            <div><hr/></div>
-            <div className="col-sm-6">
-              <h4>Phone Number</h4>
-            </div>
-            <div className="col-sm-6">
-              <h4>{user.phoneNumber}</h4>
-            </div>
-            <div className="col-sm-6">
-              <h4>Date of Birth</h4>
-            </div>
-            <div className="col-sm-6">
-              <h4>{user.birthday}</h4>
-            </div>
-            <div><hr/></div>
-            <div className="col-sm-6">
+            <div className="col-sm-12"><hr/></div>
+            <div className="col-sm-6 descriptions">
               <h4>Email</h4>
             </div>
             <div className="col-sm-6">
-              <h4>{user.email}</h4>
+              <h4 className="filled-in">{user.email}jamjon94@gmail.com</h4>
+            </div>
+            <div className="col-sm-12"><hr/></div>
+            <div className="col-sm-6 descriptions">
+              <h4>Date of Birth</h4>
+            </div>
+            <div className="col-sm-6">
+              <h4 className="filled-in">{user.birthday}August 19, 1994</h4>
+            </div>
+            <div className="col-sm-12"><hr/></div>
+            <div className="col-sm-6 descriptions">
+              <h4>Phone Number</h4>
+            </div>
+            <div className="col-sm-6">
+              <h4 className="filled-in">{user.phoneNumber}(912)224-8562</h4>
             </div>
           </section>
-          <h5>Edit Info</h5>
-          <button type="button" className="btn btn-primary">Edit</button>
-      <form className="profile-form">
+          <div><br/></div>
+          <section className="row">
+            <div className="col-sm-4">
+            <Link type="button" className="btn btn-primary edit-btn" to="/edit">
+              EDIT PROFILE
+            </Link>
+              {/* <button type="button" className="btn btn-primary edit-btn">EDIT PROFILE</button> */}
+            </div>
+            <div className="col-sm-8">
+            <Link type="submit" className="btn btn-primary edit-btn" to="/">
+              SIGN OUT
+            </Link>
+            {/* <button type="button" className="btn btn-primary edit-btn">SIGN OUT</button> */}
+            </div>
+          </section>
+          <div><br/></div>
+      {/* <form className="profile-form">
         <div className="form-group">
           <label for="full_name">Full Name</label>
           <input
@@ -89,7 +104,7 @@ function Profile() {
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
-      </form>
+      </form> */}
       </div>
       </main>
     </body>
