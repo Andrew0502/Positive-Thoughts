@@ -29,14 +29,16 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/sign-up", (req, res) => {
-  const newUser = {
-    fullName: req.body.fullName,
-    birthday: req.body.birthday,
-    phoneNumber: req.body.phoneNumber,
-    username: req.body.username,
-    password: req.body.password,
-    email: req.body.email
-  };
+  const newUser = (req.body);
+  //we can change up the fields going forward and it will handle because whatever we end up with is req.body
+    // firstName: req.body.firstName,
+    // lastName: req.body.lastName,
+    // birthday: req.body.birthday,
+    // phoneNumber: req.body.phoneNumber,
+    // // username: req.body.username,
+    // password: req.body.password,
+    // email: req.body.email
+  // };
   db.User.create(newUser).then((newUser) => {
     res.json(newUser);
   });
