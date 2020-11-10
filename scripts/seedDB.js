@@ -7,12 +7,10 @@ mongoose.connect(
 
 const promptsSeed = [
   {
-    message_text:
-      "Smell the flowers🌻",
+    message_text: "Smell the flowers🌻",
   },
   {
-    message_text:
-      "Draw something you like! It doesn't have to amazing, just do it!",
+    message_text: "Draw something you like! It doesn't have to amazing, just do it!",
   },
   {
     message_text: "Go out and take pictures of mushrooms! 🍄🍄🍄",
@@ -60,21 +58,19 @@ const promptsSeed = [
     message_text: "Watch a movie! 🍿🎞",
   },
   {
-    message_text:
-      "Plan a weekend out for camping! 🏕",
+    message_text: "Plan a weekend out for camping! 🏕",
   },
   {
-    message_text:
-      "Go for a bike ride! 🚵‍♂️🚵‍♀️",
+    message_text: "Go for a bike ride! 🚵‍♂️🚵‍♀️",
   },
-
-db.thoughts.remove({})
-  .then(() => db.thoughts.collection.insertMany(promptsSeed))
-  .then((data) => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
+]
+// db.thoughts.remove({})
+//   .then(() => db.thoughts.collection.insertMany(promptsSeed))
+//   .then((data) => {
+//     console.log(data.result.n + " records inserted!");
+//     process.exit(0);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//     process.exit(1);
+//   });
