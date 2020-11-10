@@ -36,7 +36,7 @@ function Profile() {
               <h4>Name</h4>
             </div>            
             <div className="col-sm-6">
-                <h4 className="filled-in">{user.fullName}</h4>
+                <h4 className="filled-in">{user.firstName} {user.lastName}</h4>
             </div>
             <div className="col-sm-12"><hr/></div>
             <div className="col-sm-6 descriptions">
