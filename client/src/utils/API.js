@@ -14,5 +14,9 @@ export default {
 
     login: function(email) {
       return axios.post("/api/user/login", email)
+    },
+
+    signup: function(userData) {
+      return axios.post("/api/user/sign-up", userData)
     }
 }

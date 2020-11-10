@@ -1,6 +1,6 @@
 import "./SignUp.css";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory} from "react-router-dom";
 import API from "../../utils/API";
 
 const SignUp = () => {
@@ -13,6 +13,8 @@ const SignUp = () => {
         passwordConfirm: "",
         email: ""
       });
+    //this is a react router hook, importing from react-router
+    const history = useHistory();
       const handleInputChange = (event) => {
         // Getting the value and name of the input which triggered the change
         let value = event.target.value;
@@ -20,6 +22,25 @@ const SignUp = () => {
         // Updating the input's state
         setState({...state,
           [name]: value,
+        });
+      };
+
+      const handleFormSubmit = (event) => {
+        // Preventing the default behavior of the form submit (which is to refresh the page)
+        event.preventDefault();
+        API.signup(state).then((response) => {   
+            sessionStorage.setItem("currentUsers", response.data._id)
+            //using the useHistory hook to redirect without refreshing
+            history.push("/profile")
+        }).catch(err => {throw err});
+        setState({
+          firstName: "",
+          lastName: "",
+          birthday: "",
+          phoneNumber: "",
+          password: "",
+          passwordConfirm: "",
+          email: ""
         });
       };
 
@@ -35,7 +56,8 @@ const SignUp = () => {
         </section>
         <section className="row">
           <div className="col-sm-12">
-            <form>
+            <form
+              onSubmit={handleFormSubmit}>
               <div className="form-group">
               <input
                   value={state.firstName}
