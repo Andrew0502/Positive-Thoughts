@@ -1,64 +1,137 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
-import { Link, useParams } from "react-router-dom";
-import API from "../../utils/API"; 
-import "./Edit.css"
+import { Link, useParams, useHistory } from "react-router-dom";
+import API from "../../utils/API";
+import "./Edit.css";
 
 const Edit = () => {
-    return (
-        <body>
-            <Navbar/>
-            <main className="content">
-                <div className="container">
-                    <section className="row">
-                        <div className="col-sm-12">
-                            <h1 className="edit-profile">Edit Profile</h1>
-                        </div>
-                    </section>
-                <section className="row">
-                <div className="col-sm-12">
-                    <form className="profile-form">
-                        <div className="form-group">
-                            <label for="full_name">Full Name</label>
-                            <input
-                                type="text"
-                                className="form-control profile-input-form"
-                                id="full_name"
-                                name="full_name"
-                                aria-describedby="nameHelp"
-                            />
-                        </div>
-                        <div className="form-group profile-input-form">
-                            <label for="birthday">Birthday</label>
-                            <input
-                                type="date"
-                                name="birthday"
-                                className="form-control"
-                                id="birthday"
-                            />
-                        </div>
-                        <div className="form-group profile-input-form">
-                            <label for="phone_number">Phone Number</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="phone_number"
-                                name="phone_number"
-                            />
-                        </div>
-                    </form>
-                    <Link type="submit" className="btn btn-primary edit-btn" to="/profile">
-              CANCEL
-            </Link>
-                    <button type="submit" className="btn btn-primary edit-btn">
-              SAVE CHANGES
-            </button>
-                </div>
-             </section>
-            </div>
-        </main>
-        </body>
-    );
+  const [user, setUser] = useState({});
+
+  const { id } = useParams();
+
+  const handleInputChange = (event) => {
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+    const name = event.target.name;
+    // Updating the input's state
+    setUser({...user,
+      [name]: value,
+    });
+  };
+
+
+
+  useEffect(() => {
+    API.getUser(sessionStorage.getItem("currentUsers"))
+      .then((res) => setUser(res.data))
+      .catch((err) => console.log(err));
+  }, [id]);
+  return (
+    <body>
+      <Navbar />
+      <main className="content">
+      <div className="container">
+        <section className="row">
+          <div className="col-sm-12">
+            <h1>Edit Profile</h1>
+          </div>
+        </section>
+        <section className="row">
+          <div className="col-sm-12">
+            <form>
+            {/* //   onSubmit={handleFormSubmit}> */}
+              <div className="form-group">
+              <input
+                  value={user.firstName}
+                  name="firstName"
+                  type="text"
+                  className="form-control"
+                  onChange={handleInputChange}
+                  id="enterFirstName"
+                  aria-describedby="emailHelp"
+                  placeholder="First Name"
+                />
+              </div>
+              <div className="form-group">
+              <input
+                  value={user.lastName}
+                  name="lastName"
+                  type="text"
+                  className="form-control"
+                  onChange={handleInputChange}
+                  id="enterLastName"
+                  aria-describedby="emailHelp"
+                  placeholder="Last Name"
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  value={user.birthday}
+                  name="birthday"
+                  type="date"
+                  className="form-control"
+                  onChange={handleInputChange}
+                  id="exampleBirthday"
+                  aria-describedby="emailHelp"
+                  placeholder="birthday"
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  value={user.phoneNumber}
+                  name="phoneNumber"
+                  type="text"
+                  className="form-control"
+                  onChange={handleInputChange}
+                  id="examplePhoneNumber"
+                  placeholder="Phone Number"
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  value={user.password}
+                  name="password"
+                  type="password"
+                  //in twice so a user can confirm password
+                  className="form-control"
+                  onChange={handleInputChange}
+                  id="examplePassword"
+                  placeholder="Password"
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  value={user.passwordConfirm}
+                  name="passwordConfirm"
+                  type="password"
+                  className="form-control"
+                  onChange={handleInputChange}
+                  id="exampleConfirmPassword"
+                  placeholder="Confirm Password"
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  value={user.email}
+                  name="email"
+                  type="email"
+                  //only accepts a formatted date
+                  className="form-control"
+                  onChange={handleInputChange}
+                  id="userEmail"
+                  placeholder="Email Address"
+                />
+              </div>
+              <button type="submit" className="btn btn-primary">
+                Update Account
+              </button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+    </body>
+  );
 };
 
 export default Edit;
