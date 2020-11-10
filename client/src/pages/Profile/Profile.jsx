@@ -32,28 +32,28 @@ function Profile() {
               <h4>Name</h4>
             </div>            
             <div className="col-sm-6">
-                <h4 className="filled-in">{user.fullName}Jamie Jones</h4>
+                <h4 className="filled-in">{user.fullName}</h4>
             </div>
             <div className="col-sm-12"><hr/></div>
             <div className="col-sm-6 descriptions">
               <h4>Email</h4>
             </div>
             <div className="col-sm-6">
-              <h4 className="filled-in">{user.email}jamjon94@gmail.com</h4>
+              <h4 className="filled-in">{user.email}</h4>
             </div>
             <div className="col-sm-12"><hr/></div>
             <div className="col-sm-6 descriptions">
               <h4>Date of Birth</h4>
             </div>
             <div className="col-sm-6">
-              <h4 className="filled-in">{user.birthday}August 19, 1994</h4>
+              <h4 className="filled-in">{user.birthday}</h4>
             </div>
             <div className="col-sm-12"><hr/></div>
             <div className="col-sm-6 descriptions">
               <h4>Phone Number</h4>
             </div>
             <div className="col-sm-6">
-              <h4 className="filled-in">{user.phoneNumber}(912)224-8562</h4>
+              <h4 className="filled-in">{user.phoneNumber}</h4>
             </div>
           </section>
           <div><br/></div>
