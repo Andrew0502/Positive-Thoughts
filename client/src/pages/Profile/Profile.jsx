@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API"; 
 import "./Profile.css"
 
@@ -11,6 +11,8 @@ function Profile() {
 
     const {id} = useParams()
 
+    const history = useHistory();
+
     useEffect(() =>{
       const id = sessionStorage.getItem("currentUsers")
         API.getUser(id)
@@ -18,7 +20,18 @@ function Profile() {
         .catch(err=> console.log(err));
     }, [])
 
-    
+    const handleDelete = () => {
+      const id = sessionStorage.getItem("currentUsers")
+        API.deleteUser(id)
+          .then(res=>{sessionStorage.removeItem("currentUsers")
+            history.push("/")})
+          .catch(err=> console.log(err));
+    }
+
+    const handleLogout = () => {
+      sessionStorage.removeItem("currentUsers")
+      history.push("/")
+    }
 
     
 
@@ -70,9 +83,15 @@ function Profile() {
               {/* <button type="button" className="btn btn-primary edit-btn">EDIT PROFILE</button> */}
             </div>
             <div className="col-sm-8">
-            <Link type="submit" className="btn btn-primary edit-btn" to="/">
+            <button type="submit" className="btn btn-primary edit-btn" onClick={handleDelete}>
+              DELETE ACCOUNT
+            </button>
+            {/* <button type="button" className="btn btn-primary edit-btn">SIGN OUT</button> */}
+            </div>
+            <div className="col-sm-8">
+            <button type="submit" className="btn btn-primary edit-btn" onClick={handleLogout}>
               SIGN OUT
-            </Link>
+            </button>
             {/* <button type="button" className="btn btn-primary edit-btn">SIGN OUT</button> */}
             </div>
           </section>
