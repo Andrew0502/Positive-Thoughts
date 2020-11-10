@@ -29,7 +29,7 @@ const SignUp = () => {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         event.preventDefault();
         API.signup(state).then((response) => {   
-            sessionStorage.setItem("currentUsers", response.data._id)
+            sessionStorage.setItem("currentUsers", response.data.data._id)
             //using the useHistory hook to redirect without refreshing
             history.push("/profile")
         }).catch(err => {throw err});

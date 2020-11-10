@@ -25,7 +25,7 @@ const SignIn = () => {
       email: state.email,
       password: state.password,
     }).then((response) => {
-        sessionStorage.setItem("currentUsers", response.data._id)  
+        sessionStorage.setItem("currentUsers", response.data.data._id)  
     }).catch(err => {throw err});
     // if (!this.state.firstName || !this.state.lastName) {
     //   alert("Fill out your first and last name please!");

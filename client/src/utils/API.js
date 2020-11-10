@@ -20,7 +20,7 @@ export default {
       return axios.post("/api/user/sign-up", userData)
     },
 
-    editUser: function(id) {
-      return axios.put("/api/user/" + id);
+    editUser: function(id, body) {
+      return axios.put("/api/user/" + id, body);
     }
 }
