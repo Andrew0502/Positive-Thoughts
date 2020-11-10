@@ -12,7 +12,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/api/prompts", PromptController);
-app.use("/api/user", UserController)
+app.use("/api/user", UserController);
+
 
 app.use(express.static("client/build"));
 
