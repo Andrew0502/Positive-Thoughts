@@ -53,7 +53,7 @@ body {
     rgb(40, 41, 51),
     rgb(185, 191, 197)
   );
-  background-size: 500% 500%;
+  background-size: 500% 900%;
   animation: gradient 15s ease infinite;
   color: white;
 }

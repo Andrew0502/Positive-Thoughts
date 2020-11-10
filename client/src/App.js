@@ -24,7 +24,7 @@ function App() {
       });
   }, []);
   return (
-    <>
+    <body>
       <Router>
         {/* <Navbar/> */}
         <div>
@@ -39,7 +39,7 @@ function App() {
           </Switch>
         </div>
       </Router>
-    </>
+    </body>
   );
 }
 

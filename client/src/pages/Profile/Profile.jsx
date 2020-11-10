@@ -72,39 +72,6 @@ function Profile() {
             </div>
           </section>
           <div><br/></div>
-      {/* <form className="profile-form">
-        <div className="form-group">
-          <label for="full_name">Full Name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="full_name"
-            name="full_name"
-            aria-describedby="nameHelp"
-          />
-        </div>
-        <div className="form-group">
-          <label for="birthday">Birthday</label>
-          <input
-            type="date"
-            name="birthday"
-            className="form-control"
-            id="birthday"
-          />
-        </div>
-        <div className="form-group">
-          <label for="phone_number">Phone Number</label>
-          <input
-            type="text"
-            className="form-control"
-            id="phone_number"
-            name="phone_number"
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form> */}
       </div>
       </main>
     </body>
