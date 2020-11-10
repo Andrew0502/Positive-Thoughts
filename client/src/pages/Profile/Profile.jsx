@@ -12,10 +12,11 @@ function Profile() {
     const {id} = useParams()
 
     useEffect(() =>{
-        API.getUser(sessionStorage.getItem("currentUsers"))
-        .then(res=>setUser(res.data))
+      const id = sessionStorage.getItem("currentUsers")
+        API.getUser(id)
+        .then(res=>setUser(res.data.data))
         .catch(err=> console.log(err));
-    }, [id])
+    }, [])
 
     
 

@@ -17,7 +17,11 @@ router.get("/:id", (req, res) => {
   db.User.findById(req.params.id)
     .then((foundUser) => {
       console.log(foundUser);
-      res.json(foundUser);
+      res.json({
+        error: false,
+        data: foundUser,
+        message: "Successfully found user.",
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -59,7 +63,7 @@ router.post("/login", (req, res) => {
 // the total route /api/user/:id
 router.put("/:id", (req, res) => {
   db.User.findByIdAndUpdate(req.params.id,
-    req.body)
+    req.body, {new: true})
     .then((updatedUser) => {
       console.log(updatedUser);
       res.json({
