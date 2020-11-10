@@ -17,6 +17,10 @@ function Profile() {
         .catch(err=> console.log(err));
     }, [id])
 
+    
+
+    
+
     return (
     <body>
       <Navbar/>

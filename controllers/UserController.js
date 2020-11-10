@@ -3,11 +3,13 @@ const db = require("../models");
 
 const router = express.Router();
 
-// router.get("/user", (req, res) => {
-//   db.User.findAll().then((allUser) => {
-//     res.render("users/users", { allUser: allUser });
-//   });
-// });
+router.get("/user", (req, res) => {
+  db.User.find().then((allUser) => {
+    res.json({ allUser: allUser });
+  }).catch(error => {
+    console.log(error)
+  })
+});
 
 router.get("/:id", (req, res) => {
   console.log(req.params.id);
@@ -51,53 +53,50 @@ router.post("/login", (req, res) => {
     }
   });
 });
+// It is actually /:id not /api/user/:id which would make the total route /api/user/api/user/:id
+router.put("/:id", (req, res) => {
+  db.User.findByIdAndUpdate(req.params.id,
+    { fullName: req.body.fullName,
+      username: req.body.username
+    })
+    .then((updatedUser) => {
+      console.log(updatedUser);
+      res.json({
+        error: false,
+        data: updatedUser,
+        message: "Successfully updated profile.",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "Unable to update profile.",
+      });
+    });
+});
 
-// router.put("/api/user/:id", (req, res) => {
-//   db.User.update(req.body, {
-//     where: {
-//       id: req.params.id,
-//     },
-//   })
-//     .then((updatedUser) => {
-//       console.log(updatedUser);
-//       res.json({
-//         error: false,
-//         data: updatedUser,
-//         message: "Successfully updated profile.",
-//       });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json({
-//         error: true,
-//         data: null,
-//         message: "Unable to update profile.",
-//       });
-//     });
-// });
-
-// router.delete("/api/user/:id", (req, res) => {
-//   db.User.destroy({
-//     where: {
-//       id: req.params.id,
-//     },
-//   })
-//     .then((deletedUser) => {
-//       console.log(deletedUser);
-//       res.json({
-//         error: false,
-//         data: deletedUser,
-//         message: "Successfully deleted profile.",
-//       });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json({
-//         error: true,
-//         data: null,
-//         message: "Unable to delete profile.",
-//       });
-//     });
-// });
+// Delete route works now.
+// It is actually /:id not /api/user/:id which would make the total route /api/user/api/user/:id
+router.delete("/:id", (req, res) => {
+  db.User.findByIdAndDelete({ _id: req.params.id})
+    .then((deletedUser) => {
+      console.log(deletedUser);
+      res.json({
+        error: false,
+        data: deletedUser,
+        message: "Successfully deleted profile.",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "Unable to delete profile.",
+      });
+    });
+});
 
 module.exports = router;
