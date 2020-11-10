@@ -67,9 +67,10 @@ const promptsSeed = [
     message_text:
       "Go for a bike ride! 🚵‍♂️🚵‍♀️",
   },
+]
 
-db.thoughts.remove({})
-  .then(() => db.thoughts.collection.insertMany(promptsSeed))
+db.Prompt.remove({})
+  .then(() => db.Prompt.collection.insertMany(promptsSeed))
   .then((data) => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
