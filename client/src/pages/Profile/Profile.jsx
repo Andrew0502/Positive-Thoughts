@@ -2,27 +2,8 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import { Link, useParams } from "react-router-dom";
 import API from "../../utils/API"; 
+import "./Profile.css"
 
-// function Detail(props) {
-//     const [user, setUser] = useState({})
-
-//     const {id} = useParams()
-
-// useEffect(()=> {
-//       API.getUser(id)
-//       .then(res=>setUser(res.data))
-//       .catch(err=> console.log(err)):
-// }, [])
-
-// return (
-//     <h1> Welcome {{user.fullName}}!</h1>
-//     <ul>
-//          <li>Your Birthday is {{user.birthday}}</li>
-//          <li>Your Phone Number is {{user.phoneNumber}}</li>
-//          <li>Your Username is {{user.username}}</li>
-//    </ul>
-// );
-// }
 
 function Profile() {
 
@@ -41,56 +22,63 @@ function Profile() {
     
 
     return (
-    <div>
+    <body>
       <Navbar/>
-      <h1>Profile</h1>
-      <h2>{user.fullName}</h2>
-    <h2>{user.phoneNumber}</h2>
-    <h2>{user.username}</h2>
-    <h2>{user.birthday}</h2>
-      {/* <form>
-        <div className="form-group">
-          <label for="full_name">Full Name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="full_name"
-            name="full_name"
-            aria-describedby="nameHelp"
-          />
-          <small id="nameHelp" className="form-text text-muted">
-            We'll never share your information with anyone else.
-          </small>
-        </div>
-        <div className="form-group">
-          <label for="birthday">Birthday</label>
-          <input
-            type="date"
-            name="birthday"
-            className="form-control"
-            id="birthday"
-          />
-        </div>
-        <div className="form-group">
-          <label for="phone_number">Phone Number</label>
-          <input
-            type="text"
-            className="form-control"
-            id="phone_number"
-            name="phone_number"
-          />
-        </div>
-        <div className="form-group form-check">
-          <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-          <label className="form-check-label" for="exampleCheck1">
-            Remember Me
-          </label>
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form> */}
-    </div>
+      <main className="content">
+        <div className="container">
+          <section className="row">
+            <div className="col-sm-12">
+              <h1>Profile</h1>
+            </div>
+          </section>
+          <section className="row profile-info">
+            <div className="col-sm-6 descriptions">
+              <h4>Name</h4>
+            </div>            
+            <div className="col-sm-6">
+                <h4 className="filled-in">{user.fullName}</h4>
+            </div>
+            <div className="col-sm-12"><hr/></div>
+            <div className="col-sm-6 descriptions">
+              <h4>Email</h4>
+            </div>
+            <div className="col-sm-6">
+              <h4 className="filled-in">{user.email}</h4>
+            </div>
+            <div className="col-sm-12"><hr/></div>
+            <div className="col-sm-6 descriptions">
+              <h4>Date of Birth</h4>
+            </div>
+            <div className="col-sm-6">
+              <h4 className="filled-in">{user.birthday}</h4>
+            </div>
+            <div className="col-sm-12"><hr/></div>
+            <div className="col-sm-6 descriptions">
+              <h4>Phone Number</h4>
+            </div>
+            <div className="col-sm-6">
+              <h4 className="filled-in">{user.phoneNumber}</h4>
+            </div>
+          </section>
+          <div><br/></div>
+          <section className="row">
+            <div className="col-sm-4">
+            <Link type="button" className="btn btn-primary edit-btn" to="/edit">
+              EDIT PROFILE
+            </Link>
+              {/* <button type="button" className="btn btn-primary edit-btn">EDIT PROFILE</button> */}
+            </div>
+            <div className="col-sm-8">
+            <Link type="submit" className="btn btn-primary edit-btn" to="/">
+              SIGN OUT
+            </Link>
+            {/* <button type="button" className="btn btn-primary edit-btn">SIGN OUT</button> */}
+            </div>
+          </section>
+          <div><br/></div>
+      </div>
+      </main>
+    </body>
   );
 };
 

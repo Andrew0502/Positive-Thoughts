@@ -1,0 +1,72 @@
+h1,
+button,
+form {
+  text-align: center;
+}
+
+input {
+  width: 25% !important;
+  margin: auto;
+}
+
+.container {
+  text-align: center;
+  border-color: white;
+  border-style: solid;
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  color: black !important;
+}
+
+.descriptions {
+  text-align: left;
+  color: gray;
+}
+
+.filled-in {
+  float: right;
+}
+
+.edit-btn {
+  border-radius: 30px;
+  background-color: white;
+  color: gray;
+  border-color: lightgray;
+  width: 50%;
+  height: 50px;
+  float: right;
+}
+
+.edit-btn:hover{
+  background-color: lightgray;
+  color: white;
+  border-color: lightgray;
+}
+
+body {
+  background-repeat: no-repeat;
+  background: linear-gradient(
+    -45deg,
+    rgb(18, 24, 34),
+    rgb(26, 37, 51),
+    rgb(40, 41, 51),
+    rgb(185, 191, 197)
+  );
+  background-size: 500% 900%;
+  animation: gradient 15s ease infinite;
+  color: white;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+

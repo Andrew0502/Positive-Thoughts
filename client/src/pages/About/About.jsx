@@ -1,7 +1,10 @@
 import React from 'react';
+import Navbar from "../../components/Navbar";
 
 const About = () => {
     return (
+        <body>
+            <Navbar/>
         <main className="content">
             <div className="container">
                 <div className="row">
@@ -14,6 +17,7 @@ const About = () => {
                 </div>
             </div>
         </main>
+        </body>
     );
 };
 
