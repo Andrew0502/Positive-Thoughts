@@ -36,11 +36,15 @@ function Profile() {
         .catch(err=> console.log(err));
     }, [id])
 
+    
+
+    
+
     return (
     <div>
       <Navbar/>
       <h1>Profile</h1>
-      <h2>{user.firstName}</h2>
+      <h2>{user.fullName}</h2>
     <h2>{user.phoneNumber}</h2>
     <h2>{user.username}</h2>
     <h2>{user.birthday}</h2>
