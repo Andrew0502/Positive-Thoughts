@@ -18,5 +18,9 @@ export default {
 
     signup: function(userData) {
       return axios.post("/api/user/sign-up", userData)
+    },
+
+    editUser: function(id) {
+      return axios.put("/api/user/" + id);
     }
 }

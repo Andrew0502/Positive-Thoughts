@@ -56,12 +56,10 @@ router.post("/login", (req, res) => {
     }
   });
 });
-// It is actually /:id not /api/user/:id which would make the total route /api/user/api/user/:id
+// the total route /api/user/:id
 router.put("/:id", (req, res) => {
   db.User.findByIdAndUpdate(req.params.id,
-    { fullName: req.body.fullName,
-      username: req.body.username
-    })
+    req.body)
     .then((updatedUser) => {
       console.log(updatedUser);
       res.json({
@@ -81,7 +79,7 @@ router.put("/:id", (req, res) => {
 });
 
 // Delete route works now.
-// It is actually /:id not /api/user/:id which would make the total route /api/user/api/user/:id
+// the total route /api/user/:id
 router.delete("/:id", (req, res) => {
   db.User.findByIdAndDelete({ _id: req.params.id})
     .then((deletedUser) => {
