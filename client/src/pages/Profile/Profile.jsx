@@ -44,7 +44,7 @@ function Profile() {
     <div>
       <Navbar/>
       <h1>Profile</h1>
-      <h2>{user.fullNameName}</h2>
+      <h2>{user.fullName}</h2>
     <h2>{user.phoneNumber}</h2>
     <h2>{user.username}</h2>
     <h2>{user.birthday}</h2>
