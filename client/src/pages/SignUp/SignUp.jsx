@@ -28,6 +28,13 @@ const SignUp = () => {
       const handleFormSubmit = (event) => {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         event.preventDefault();
+        if (
+          state.password !== state.passwordConfirm
+        ) {
+          alert("Passwords do not match, please re-enter");
+          return 
+        //can do other if statements here with first name required, etc.
+        }
         API.signup(state).then((response) => {   
             sessionStorage.setItem("currentUsers", response.data.data._id)
             //using the useHistory hook to redirect without refreshing

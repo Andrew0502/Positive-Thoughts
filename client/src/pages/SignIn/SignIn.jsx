@@ -1,9 +1,11 @@
 import "./SignIn.css"
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useHistory} from "react-router-dom";
 import API from "../../utils/API";
 
+
 const SignIn = () => {
+    const history = useHistory();
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -26,6 +28,7 @@ const SignIn = () => {
       password: state.password,
     }).then((response) => {
         sessionStorage.setItem("currentUsers", response.data.data._id)  
+        history.push("/profile")
     }).catch(err => {throw err});
     // if (!this.state.firstName || !this.state.lastName) {
     //   alert("Fill out your first and last name please!");

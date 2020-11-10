@@ -22,5 +22,9 @@ export default {
 
     editUser: function(id, body) {
       return axios.put("/api/user/" + id, body);
+    },
+
+    deleteUser: function(id) {
+      return axios.delete("/api/user/" + id);
     }
 }

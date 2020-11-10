@@ -45,7 +45,11 @@ router.post("/sign-up", (req, res) => {
     // email: req.body.email
   // };
   db.User.create(newUser).then((newUser) => {
-    res.json(newUser);
+    res.json({
+      error: false,
+      data: newUser,
+      message: "Successfully created user.",
+    });
   });
 });
 
@@ -53,7 +57,12 @@ router.post("/login", (req, res) => {
   console.log(req.body);
   db.User.findOne({email:req.body.email}).then((foundUser) => {
     if (foundUser.password === req.body.password){
-      res.json(foundUser);
+      // res.json(foundUser);
+      res.json({
+        error: false,
+        data: foundUser,
+        message: "Successfully logged in user.",
+      });
     }
     else {
       res.status(401).json("User not authorized");
