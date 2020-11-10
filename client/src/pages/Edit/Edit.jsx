@@ -19,6 +19,19 @@ const Edit = () => {
     });
   };
 
+  const handleFormSubmit = (event) => {
+    // Preventing the default behavior of the form submit (which is to refresh the page)
+    event.preventDefault();
+    API.editUser(user).then((response) => {   
+        sessionStorage.setItem("currentUsers", response.data._id)
+        //using the useHistory hook to redirect without refreshing
+        // history.push("/profile")
+    }).catch(err => {throw err});
+    setUser({...user,
+      // [name]: value,
+    });
+  };
+
 
 
   useEffect(() => {
@@ -38,8 +51,8 @@ const Edit = () => {
         </section>
         <section className="row">
           <div className="col-sm-12">
-            <form>
-            {/* //   onSubmit={handleFormSubmit}> */}
+            <form
+             onSubmit={handleFormSubmit}>
               <div className="form-group">
               <input
                   value={user.firstName}
@@ -122,9 +135,18 @@ const Edit = () => {
                   placeholder="Email Address"
                 />
               </div>
-              <button type="submit" className="btn btn-primary">
-                Update Account
-              </button>
+              {/* <button type="submit" className="btn btn-primary">
+                Update Account */}
+                <section className="row">
+            <div className="col-sm-4">
+            <Link type="button" className="btn btn-primary edit-btn" to="/profile"> CANCEL</Link>
+              {/* <button type="button" className="btn btn-primary edit-btn">EDIT PROFILE</button> */}
+            </div>
+            <div className="col-sm-8">
+            <button type="submit" className="btn btn-primary edit-btn" to="/profile">UPDATE ACCOUNT</button>
+            {/* <button type="button" className="btn btn-primary edit-btn">SIGN OUT</button> */}
+            </div>
+          </section>
             </form>
           </div>
         </section>

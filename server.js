@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const path = require("path");
 const PromptController = require("./controllers/promptControllers");
 const UserController = require("./controllers/UserController");
+const db = require("./models");
+const sendText =require("./send-sms");
 
 const PORT = process.env.PORT || 3001;
 
@@ -35,8 +37,8 @@ connection.on("error", (err) => {
 });
 
 var CronJob = require('cron').CronJob;
-var job = new CronJob('* * * * *', function() {
-  console.log('You will see this message every minute');
+var job = new CronJob('* * * * *', function() { // Change to time of day.
+  console.log('You will see this message every minute'); //Call text users instead.
   // call a function in here. query all of the users, finding the ones that opted in. Take the users info and send that to the twilio functionality.
 }, null, true, 'America/Los_Angeles');
 
@@ -46,6 +48,17 @@ app.get("/api/config", (req, res) => {
   });
 });
 
+function textUsers() {
+  console.log("anything");
+  db.User.find().then((foundUsers) => {
+    foundUsers.forEach(user => sendText("Hello There", user.phoneNumber))
+  })
+}
+// db.Prompt.find which returns array.
+// chose one of the array randomly.
+// then db.User.find inside of it.
+// this is for all users to recieve the same message.
+// one query inside the callback of another.
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "./client/build/index.html"));
   });
