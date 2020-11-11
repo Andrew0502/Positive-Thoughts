@@ -44,7 +44,7 @@ var job = new CronJob(
   function () {
     // Change to time of day.
     console.log("You will see this message every minute"); //Call text users instead.
-    // sendPrompt();
+    sendPrompt();
     // textUsers();
     // call a function in here. query all of the users, finding the ones that opted in. Take the users info and send that to the twilio functionality.
   },
@@ -59,23 +59,20 @@ app.get("/api/config", (req, res) => {
   });
 });
 
-function textUsers() {
-  console.log("anything");
-  db.User.find().then((foundUsers) => {
-    foundUsers.forEach((user) => sendText("Hello There", user.phoneNumber));
-  });
-}
+// function textUsers() {
+//   console.log("anything");
+//   db.User.find().then((foundUsers) => {
+//     foundUsers.forEach((user) => sendText("Hello There", user.phoneNumber));
+//   });
+// }
 function sendPrompt() {
   console.log("Prompt Loaded");
   db.Prompt.aggregate([{$sample:{size:1}}]).then((sendPrompts) => {
-    console.log(sendPrompts);
-    // let randomPrompt = sendPrompts.sort(() => .5 - Math.random()).slice(0,n)
-    // db.Prompt.aggregate([{$sample:{size:1}}]).pretty();
+    // console.log(sendPrompts);
     db.User.find().then((useUsers) => {
-      console.log(useUsers);
-      useUsers.forEach((user) =>
-        sendText("This is a test", user.phoneNumber)
-      );
+      // console.log(useUsers);
+      // sendPrompts.forEach((thoughts) => )
+      useUsers.forEach((user) => sendText(sendPrompts[0].message_text, user.phoneNumber));
     }).catch(function (err) {
       console.log(err);
     });;
@@ -86,6 +83,11 @@ function sendPrompt() {
 // then db.User.find inside of it.
 // this is for all users to recieve the same message.
 // one query inside the callback of another.
+
+    // let randomPrompt = sendPrompts.sort(() => .5 - Math.random()).slice(0,n)
+    // db.Prompt.aggregate([{$sample:{size:1}}]).pretty();
+    // const people = useUsers;
+    // const randomPrompt = Math.floor(Math.random() * sendPrompts.length);
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
@@ -94,3 +96,18 @@ app.listen(PORT, () => {
   job.start();
   console.log(`App is running on http://localhost:${PORT}`);
 });
+
+
+// function sendPrompt() {
+//   console.log("Prompt Loaded");
+//   // db.Prompt.aggregate([{$sample:{size:1}}]).then((prompts) => {
+//     db.Prompt.find().then((prompts) => {
+//       console.log(prompts);
+//       for (var i = 0; i < thoughts.length; i++) {
+//         // if (prompts === thoughts[i].message_text) {
+//         //   return thoughts[i];
+//         // }
+//           return thoughts;
+          
+//       }
+//     }
