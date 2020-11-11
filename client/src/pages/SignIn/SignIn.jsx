@@ -62,7 +62,7 @@ const SignIn = () => {
       <div className="container sign-in-container">
         <section className="row">
           <div className="col-sm-12">
-            <h1>WELCOME TO POSITIVE THOUGHTS</h1>
+            <h1>Welcome to Positive Thoughts</h1>
           </div>
         </section>
         <div><br/></div>
