@@ -1,3 +1,8 @@
+const jwt = require('jsonwebtoken');
+
+const secret = 'm38ccnko*xu%zs';
+const expiration = '48h';
+
 const express = require("express");
 const db = require("../models");
 
@@ -14,6 +19,15 @@ router.get("/user", (req, res) => {
 
 router.get("/:id", (req, res) => {
   console.log(req.params.id);
+  console.log(typeof req.params.id);
+  if (!req.params.id || req.params.id === "null" || req.params.id === "undefined") {
+    return res.status(500).json({
+      error: true,
+      data: null,
+      message: "no id provided.",
+    });
+    
+  }
   db.User.findById(req.params.id)
     .then((foundUser) => {
       console.log(foundUser);
@@ -58,11 +72,13 @@ router.post("/login", (req, res) => {
   db.User.findOne({email:req.body.email}).then((foundUser) => {
     if (foundUser.password === req.body.password){
       // res.json(foundUser);
+      const token = jwt.sign({ data: foundUser }, secret, { expiresIn: expiration });
       res.json({
         error: false,
-        data: foundUser,
+        data: {foundUser, token},
         message: "Successfully logged in user.",
       });
+      console.log(token);
     }
     else {
       res.status(401).json("User not authorized");
