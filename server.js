@@ -68,11 +68,11 @@ app.get("/api/config", (req, res) => {
 function sendPrompt() {
   console.log("Prompt Loaded");
   db.Prompt.aggregate([{$sample:{size:1}}]).then((sendPrompts) => {
-    console.log(sendPrompts);
+    // console.log(sendPrompts);
     db.User.find().then((useUsers) => {
-      console.log(useUsers);
+      // console.log(useUsers);
       // sendPrompts.forEach((thoughts) => )
-      useUsers.forEach((user) => sendText("sendPrompts", user.phoneNumber));
+      useUsers.forEach((user) => sendText(sendPrompts[0].message_text, user.phoneNumber));
     }).catch(function (err) {
       console.log(err);
     });;
