@@ -44,7 +44,7 @@ var job = new CronJob(
   function () {
     // Change to time of day.
     console.log("You will see this message every minute"); //Call text users instead.
-    // sendPrompt();
+    sendPrompt();
     // textUsers();
     // call a function in here. query all of the users, finding the ones that opted in. Take the users info and send that to the twilio functionality.
   },
@@ -59,22 +59,24 @@ app.get("/api/config", (req, res) => {
   });
 });
 
-function textUsers() {
-  console.log("anything");
-  db.User.find().then((foundUsers) => {
-    foundUsers.forEach((user) => sendText("Hello There", user.phoneNumber));
-  });
-}
+// function textUsers() {
+//   console.log("anything");
+//   db.User.find().then((foundUsers) => {
+//     foundUsers.forEach((user) => sendText("Hello There", user.phoneNumber));
+//   });
+// }
 function sendPrompt() {
   console.log("Prompt Loaded");
   db.Prompt.aggregate([{$sample:{size:1}}]).then((sendPrompts) => {
     console.log(sendPrompts);
     // let randomPrompt = sendPrompts.sort(() => .5 - Math.random()).slice(0,n)
     // db.Prompt.aggregate([{$sample:{size:1}}]).pretty();
+    // const people = useUsers;
+    // const randomPrompt = Math.floor(Math.random() * sendPrompts.length);
     db.User.find().then((useUsers) => {
       console.log(useUsers);
       useUsers.forEach((user) =>
-        sendText("This is a test", user.phoneNumber)
+        sendText(sendPrompts, user.phoneNumber)
       );
     }).catch(function (err) {
       console.log(err);
