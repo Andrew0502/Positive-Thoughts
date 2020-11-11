@@ -43,6 +43,7 @@ var job = new CronJob(
   "* * * * *",
   function () {
     // Change to time of day.
+    console.log("Once a minute at this time 46 ");
     // console.log("You will see this message every minute"); //Call text users instead.
     sendPrompt();
     // textUsers();
