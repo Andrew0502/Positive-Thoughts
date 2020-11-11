@@ -49,9 +49,10 @@ function Profile() {
         <div className="container cover-container">
           <section className="row">
             <div className="col-sm-12">
-              <h1>Profile</h1>
+              <h1 className="heading">Profile</h1>
             </div>
           </section>
+          <div><br/></div>
           <section className="row profile-info">
             <div className="col-sm-6 descriptions">
               <h4>Name</h4>

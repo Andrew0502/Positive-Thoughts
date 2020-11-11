@@ -51,6 +51,7 @@ const Edit = () => {
               <h1 className="heading">Edit Profile</h1>
             </div>
           </section>
+          <div><br/></div>
           <section className="row">
             <form className="col-sm-6" onSubmit={handleFormSubmit}>
                   <input value={user.firstName}
