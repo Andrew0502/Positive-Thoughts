@@ -2,6 +2,7 @@ import "./SignIn.css"
 import React, { useEffect, useState } from "react";
 import { Link , useHistory} from "react-router-dom";
 import API from "../../utils/API";
+import "../assets/main.css"
 
 
 const SignIn = () => {
@@ -58,71 +59,52 @@ const SignIn = () => {
 
   return (
     <main className="content">
-      <div className="container">
+      <div className="container sign-in-container">
         <section className="row">
           <div className="col-sm-12">
             <h1>WELCOME TO POSITIVE THOUGHTS</h1>
           </div>
         </section>
-        <section className="row" id="signin-form">
-          <form className="col-sm-12 signin-form">
+        <div><br/></div>
+        <section className="row">
+          <form className="col-sm-12" id="sign-in-form">
             <div className="form-group">
               <input
                 value={state.email}
                 name="email"
                 onChange={handleInputChange}
                 type="email"
-                className="form-control"
+                className="form-control sign-in-input"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 placeholder="Email"
               />
-
-              {/* <input
-                value={email}
-                name="email"
-                onChange={handleInputChange}
-                type="text"
-                placeholder="Email"
-              /> */}
-              {/* <input
-                value={this.state.lastName}
-                name="lastName"
-                onChange={this.handleInputChange}
-                type="text"
-                placeholder="Last Name"
-              /> */}
             </div>
             <div className="form-group">
-              {/* <input
-                type="password"
-                className="form-control"
-                id="exampleInputPassword1"
-                placeholder="Password"
-              /> */}
                 <input
                 value={state.password}
                 name="password"
                 onChange={handleInputChange}
                 type="password"
-                className="form-control"
+                className="form-control sign-in-input"
                 id="exampleInputPassword1"
                 aria-describedby="passwordHelp"
                 placeholder="password"
               />
             </div>
+          <div id="sign-in-btns">
             <button
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-primary button sign-in-btn"
               onClick={handleFormSubmit}
-            >
-              Login
+            >Login
             </button>
             &nbsp;
-            <Link type="submit" className="btn btn-primary" to="/sign-up">
+            <Link type="submit" className="btn btn-primary button sign-in-btn" to="/sign-up">
               Sign Up
             </Link>
-          </form>
+            </div>
+            </form>
         </section>
       </div>
     </main>

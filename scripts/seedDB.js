@@ -7,12 +7,10 @@ mongoose.connect(
 
 const promptsSeed = [
   {
-    message_text:
-      "Smell the flowers🌻",
+    message_text: "Smell the flowers🌻",
   },
   {
-    message_text:
-      "Draw something you like! It doesn't have to amazing, just do it!",
+    message_text: "Draw something you like! It doesn't have to amazing, just do it!",
   },
   {
     message_text: "Go out and take pictures of mushrooms! 🍄🍄🍄",
@@ -60,12 +58,10 @@ const promptsSeed = [
     message_text: "Watch a movie! 🍿🎞",
   },
   {
-    message_text:
-      "Plan a weekend out for camping! 🏕",
+    message_text: "Plan a weekend out for camping! 🏕",
   },
   {
-    message_text:
-      "Go for a bike ride! 🚵‍♂️🚵‍♀️",
+    message_text: "Go for a bike ride! 🚵‍♂️🚵‍♀️",
   },
 ]
 

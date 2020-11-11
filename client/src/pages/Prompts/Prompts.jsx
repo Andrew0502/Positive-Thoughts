@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
+import "../assets/main.css";
 import { Link, useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API"; 
 

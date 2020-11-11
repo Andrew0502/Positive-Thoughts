@@ -1,0 +1,11 @@
+.border{
+border-color: black;
+border-style: solid;
+width: 80%;
+margin: auto;
+padding: 3%;
+}
+
+#about-title{
+    text-align: center;
+}

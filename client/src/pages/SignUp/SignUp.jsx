@@ -2,6 +2,7 @@ import "./SignUp.css";
 import React, { useEffect, useState } from "react";
 import { Link, useHistory} from "react-router-dom";
 import API from "../../utils/API";
+import "../assets/main.css"
 
 const SignUp = () => {
     const [state, setState] = useState({
@@ -87,7 +88,7 @@ const SignUp = () => {
 
   return (
     <main className="content">
-      <div className="container">
+      <div className="container sign-in-container">
         <section className="row">
           <div className="col-sm-12">
             <h1>Sign up</h1>
@@ -102,7 +103,7 @@ const SignUp = () => {
                   value={state.firstName}
                   name="firstName"
                   type="text"
-                  className="form-control"
+                  className="form-control sign-in-input"
                   onChange={handleInputChange}
                   id="enterFirstName"
                   aria-describedby="emailHelp"
@@ -114,7 +115,7 @@ const SignUp = () => {
                   value={state.lastName}
                   name="lastName"
                   type="text"
-                  className="form-control"
+                  className="form-control sign-in-input"
                   onChange={handleInputChange}
                   id="enterLastName"
                   aria-describedby="emailHelp"
@@ -126,7 +127,7 @@ const SignUp = () => {
                   value={state.birthday}
                   name="birthday"
                   type="date"
-                  className="form-control"
+                  className="form-control sign-in-input"
                   onChange={handleInputChange}
                   id="exampleBirthday"
                   aria-describedby="emailHelp"
@@ -138,7 +139,7 @@ const SignUp = () => {
                   value={state.phoneNumber}
                   name="phoneNumber"
                   type="text"
-                  className="form-control"
+                  className="form-control sign-in-input"
                   onChange={handleInputChange}
                   id="examplePhoneNumber"
                   placeholder="Phone Number"
@@ -150,7 +151,7 @@ const SignUp = () => {
                   name="password"
                   type="password"
                   //in twice so a user can confirm password
-                  className="form-control"
+                  className="form-control sign-in-input"
                   onChange={handleInputChange}
                   id="examplePassword"
                   placeholder="Password"
@@ -161,7 +162,7 @@ const SignUp = () => {
                   value={state.passwordConfirm}
                   name="passwordConfirm"
                   type="password"
-                  className="form-control"
+                  className="form-control sign-in-input"
                   onChange={handleInputChange}
                   id="exampleConfirmPassword"
                   placeholder="Confirm Password"
@@ -173,13 +174,13 @@ const SignUp = () => {
                   name="email"
                   type="email"
                   //only accepts a formatted date
-                  className="form-control"
+                  className="form-control sign-in-input"
                   onChange={handleInputChange}
                   id="userEmail"
                   placeholder="Email Address"
                 />
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary button">
                 Create Account
               </button>
             </form>
