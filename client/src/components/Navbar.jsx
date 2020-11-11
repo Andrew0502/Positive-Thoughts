@@ -22,7 +22,7 @@ const Navbar = () => {
               Prompts
             </Link>
             <Link to="./hotlines" className="nav-link">
-              HotLines
+              Hotlines
             </Link>
           </div>
         </div>
