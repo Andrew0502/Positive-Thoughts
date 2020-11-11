@@ -5,7 +5,7 @@ const path = require("path");
 const PromptController = require("./controllers/promptControllers");
 const UserController = require("./controllers/UserController");
 const db = require("./models");
-const sendText =require("./send-sms");
+const sendText = require("./send-sms");
 
 const PORT = process.env.PORT || 3001;
 
@@ -16,15 +16,17 @@ app.use(express.json());
 app.use("/api/prompts", PromptController);
 app.use("/api/user", UserController);
 
-
 app.use(express.static("client/build"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/positive-thoughts", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-});
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/positive-thoughts",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
+);
 
 const connection = mongoose.connection;
 
@@ -36,12 +38,20 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
-var CronJob = require('cron').CronJob;
-var job = new CronJob('* * * * *', function() { // Change to time of day.
-  console.log('You will see this message every minute'); //Call text users instead.
-  // textUsers();
-  // call a function in here. query all of the users, finding the ones that opted in. Take the users info and send that to the twilio functionality.
-}, null, true, 'America/New_York');
+var CronJob = require("cron").CronJob;
+var job = new CronJob(
+  "* * * * *",
+  function () {
+    // Change to time of day.
+    console.log("You will see this message every minute"); //Call text users instead.
+    sendPrompt();
+    // textUsers();
+    // call a function in here. query all of the users, finding the ones that opted in. Take the users info and send that to the twilio functionality.
+  },
+  null,
+  true,
+  "America/New_York"
+);
 
 app.get("/api/config", (req, res) => {
   res.json({
@@ -52,8 +62,24 @@ app.get("/api/config", (req, res) => {
 function textUsers() {
   console.log("anything");
   db.User.find().then((foundUsers) => {
-    foundUsers.forEach(user => sendText("Hello There", user.phoneNumber))
-  })
+    foundUsers.forEach((user) => sendText("Hello There", user.phoneNumber));
+  });
+}
+function sendPrompt() {
+  console.log("Prompt Loaded");
+  db.Prompt.aggregate([{$sample:{size:1}}]).then((sendPrompts) => {
+    console.log(sendPrompts);
+    // let randomPrompt = sendPrompts.sort(() => .5 - Math.random()).slice(0,n)
+    // db.Prompt.aggregate([{$sample:{size:1}}]).pretty();
+    db.User.find().then((useUsers) => {
+      console.log(useUsers);
+      useUser.forEach((user) =>
+        sendText(thoughts.message_text, user.phoneNumber)
+      );
+    }).catch(function () {
+      console.log("made a catch");
+    });;
+  });
 }
 // db.Prompt.find which returns array.
 // chose one of the array randomly.
@@ -61,8 +87,8 @@ function textUsers() {
 // this is for all users to recieve the same message.
 // one query inside the callback of another.
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
-  });
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.listen(PORT, () => {
   job.start();

@@ -10,6 +10,14 @@ const SignIn = () => {
     email: "",
     password: "",
   });
+
+  useEffect(() =>{
+    const id = sessionStorage.getItem("currentUsers")
+    if (id) {
+     history.push("/profile")
+    }
+  }, [history])
+
   const handleInputChange = (event) => {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
@@ -27,7 +35,8 @@ const SignIn = () => {
       email: state.email,
       password: state.password,
     }).then((response) => {
-        sessionStorage.setItem("currentUsers", response.data.data._id)  
+        sessionStorage.setItem("currentUsers", response.data.data.foundUser._id)  
+        sessionStorage.setItem("userToken", response.data.data.token)
         history.push("/profile")
     }).catch(err => {throw err});
     // if (!this.state.firstName || !this.state.lastName) {
