@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar";
 import { Link, useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API"; 
 import "./Profile.css";
-import "../assets/main.css"
+import "../assets/main.css";
 
 
 function Profile() {
