@@ -69,15 +69,10 @@ function sendPrompt() {
   console.log("Prompt Loaded");
   db.Prompt.aggregate([{$sample:{size:1}}]).then((sendPrompts) => {
     console.log(sendPrompts);
-    // let randomPrompt = sendPrompts.sort(() => .5 - Math.random()).slice(0,n)
-    // db.Prompt.aggregate([{$sample:{size:1}}]).pretty();
-    // const people = useUsers;
-    // const randomPrompt = Math.floor(Math.random() * sendPrompts.length);
     db.User.find().then((useUsers) => {
       console.log(useUsers);
-      useUsers.forEach((user) =>
-        sendText(sendPrompts, user.phoneNumber)
-      );
+      // sendPrompts.forEach((thoughts) => )
+      useUsers.forEach((user) => sendText("sendPrompts", user.phoneNumber));
     }).catch(function (err) {
       console.log(err);
     });;
@@ -88,6 +83,11 @@ function sendPrompt() {
 // then db.User.find inside of it.
 // this is for all users to recieve the same message.
 // one query inside the callback of another.
+
+    // let randomPrompt = sendPrompts.sort(() => .5 - Math.random()).slice(0,n)
+    // db.Prompt.aggregate([{$sample:{size:1}}]).pretty();
+    // const people = useUsers;
+    // const randomPrompt = Math.floor(Math.random() * sendPrompts.length);
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
@@ -96,3 +96,18 @@ app.listen(PORT, () => {
   job.start();
   console.log(`App is running on http://localhost:${PORT}`);
 });
+
+
+// function sendPrompt() {
+//   console.log("Prompt Loaded");
+//   // db.Prompt.aggregate([{$sample:{size:1}}]).then((prompts) => {
+//     db.Prompt.find().then((prompts) => {
+//       console.log(prompts);
+//       for (var i = 0; i < thoughts.length; i++) {
+//         // if (prompts === thoughts[i].message_text) {
+//         //   return thoughts[i];
+//         // }
+//           return thoughts;
+          
+//       }
+//     }
