@@ -9,7 +9,7 @@ const db = require("../models");
 const router = express.Router();
 
 router.get("/user", (req, res) => {
-  db.User.find().then((allUser) => {
+  db.User.find({}).then((allUser) => {
     console.log(allUser);
     res.json({ allUser: allUser });
   }).catch(error => {
