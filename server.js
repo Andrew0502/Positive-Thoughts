@@ -74,7 +74,9 @@ function sendPrompt() {
       useUser.forEach((user) =>
         sendText(thoughts.message_text, user.phoneNumber)
       );
-    });
+    }).catch(function () {
+      console.log("made a catch");
+    });;
   });
 }
 // db.Prompt.find which returns array.
