@@ -16,17 +16,17 @@ const Hotlines = () => {
                 <div><br/></div>
                 <section id="ContactInfo">
                     <div><br/></div>
-                    <h2>National Suicide Prevention Lifeline Veterans Crisis Line</h2>
-                    <h2 class="PhoneNumbers">1-800-273-8255</h2>
+                    <h3>National Suicide Prevention Lifeline Veterans Crisis Line</h3>
+                    <h3 class="PhoneNumbers">1-800-273-8255</h3>
                     <div><br/></div>
-                    <h2>Georgia Crisis &amp; Access Line (GCAL)</h2>
-                    <h2 class="PhoneNumbers">1-800-715-4225</h2>
+                    <h3>Georgia Crisis &amp; Access Line (GCAL)</h3>
+                    <h3 class="PhoneNumbers">1-800-715-4225</h3>
                     <div><br/></div>
-                    <h2>TrevorLifeline</h2>
-                    <h2 class="PhoneNumbers">1-866-488-7386</h2>
+                    <h3>TrevorLifeline</h3>
+                    <h3 class="PhoneNumbers">1-866-488-7386</h3>
                     <div><br/></div>
-                    <h2>BlackLifeline</h2>
-                    <h2 class="PhoneNumbers">1-800-604-5841</h2>
+                    <h3>BlackLifeline</h3>
+                    <h3 class="PhoneNumbers">1-800-604-5841</h3>
                     <div><br/></div>
                 </section>
             </div>
