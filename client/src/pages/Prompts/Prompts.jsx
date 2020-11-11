@@ -31,7 +31,7 @@ function Prompts () {
           <div class="form-group">
             <label for="prompts">Prompts</label>
             <div>
-                {prompts && prompts.map(prompt => {
+                {prompts.length && prompts.map(prompt => {
                   return (
                     <div>{prompt.message_text}</div>
                   )
