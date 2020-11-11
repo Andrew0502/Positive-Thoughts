@@ -6,7 +6,7 @@ import API from "../../utils/API";
 
 function Prompts () {
 
-  const [prompts, setPrompts] = useState({})
+  const [prompts, setPrompts] = useState([])
   const history = useHistory();
 
   useEffect(() =>{
