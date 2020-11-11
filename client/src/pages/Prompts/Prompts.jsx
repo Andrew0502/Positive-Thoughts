@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
+import { Link, useParams, useHistory } from "react-router-dom";
+import API from "../../utils/API"; 
 
-const Prompts = () => {
+function Prompts () {
+
+  const [prompts, setPrompts] = useState({})
+  const history = useHistory();
+
+  useEffect(() =>{
+    const id = sessionStorage.getItem("currentUsers")
+    console.log(id);
+    if (id) {
+      API.getPrompts()
+      .then(res=>setPrompts(res.data.allPrompts))
+      .catch(err=> console.log(err));
+    }
+      else {
+        history.push("/")
+      }
+  }, [])
+
+
   return (
     <div>
       <Navbar />
@@ -10,12 +30,14 @@ const Prompts = () => {
         <fieldset disabled>
           <div class="form-group">
             <label for="prompts">Prompts</label>
-            <textarea
-              class="form-control"
-              id="prompts"
-              placeholder="prompts"
-              rows="3"
-            ></textarea>
+            <div>
+                {prompts && prompts.map(prompt => {
+                  return (
+                    <div>{prompt.message_text}</div>
+                  )
+              })
+            }
+              </div>  
           </div>
         </fieldset>
         <button type="submit" class="btn btn-primary">
