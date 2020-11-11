@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Hotlines.css";
 import Navbar from "../../components/Navbar"
+import "../assets/main.css"
 
 const Hotlines = () => {
     return (
