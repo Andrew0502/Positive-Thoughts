@@ -80,19 +80,16 @@ function Profile() {
             <Link type="button" className="btn btn-primary edit-btn" to="/edit">
               EDIT PROFILE
             </Link>
-              {/* <button type="button" className="btn btn-primary edit-btn">EDIT PROFILE</button> */}
             </div>
             <div className="col-sm-8">
             <button type="submit" className="btn btn-primary edit-btn" onClick={handleDelete}>
               DELETE ACCOUNT
             </button>
-            {/* <button type="button" className="btn btn-primary edit-btn">SIGN OUT</button> */}
             </div>
             <div className="col-sm-8">
             <button type="submit" className="btn btn-primary edit-btn" onClick={handleLogout}>
               SIGN OUT
             </button>
-            {/* <button type="button" className="btn btn-primary edit-btn">SIGN OUT</button> */}
             </div>
           </section>
           <div><br/></div>
