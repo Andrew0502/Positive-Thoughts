@@ -73,7 +73,7 @@ function sendPrompt() {
     // db.Prompt.aggregate([{$sample:{size:1}}]).pretty();
     db.User.find().then((useUsers) => {
       console.log(useUsers);
-      useUsers.forEach((user) =>
+      useUsers.forEach((user, sendPrompts) =>
         sendText("This is a test", user.phoneNumber)
       );
     }).catch(function (err) {
