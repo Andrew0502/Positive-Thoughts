@@ -30,6 +30,7 @@ function Profile() {
 
     const handleLogout = () => {
       sessionStorage.removeItem("currentUsers")
+      sessionStorage.removeItem("userToken")
       history.push("/")
     }
 
