@@ -43,7 +43,7 @@ var job = new CronJob(
   "* * * * *",
   function () {
     // Change to time of day.
-    console.log("You will see this message every minute"); //Call text users instead.
+    // console.log("You will see this message every minute"); //Call text users instead.
     sendPrompt();
     // textUsers();
     // call a function in here. query all of the users, finding the ones that opted in. Take the users info and send that to the twilio functionality.
@@ -66,7 +66,7 @@ app.get("/api/config", (req, res) => {
 //   });
 // }
 function sendPrompt() {
-  console.log("Prompt Loaded");
+  // console.log("Prompt Loaded");
   db.Prompt.aggregate([{$sample:{size:1}}]).then((sendPrompts) => {
     // console.log(sendPrompts);
     db.User.find().then((useUsers) => {
