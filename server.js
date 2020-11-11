@@ -68,16 +68,16 @@ function textUsers() {
 function sendPrompt() {
   console.log("Prompt Loaded");
   db.Prompt.aggregate([{$sample:{size:1}}]).then((sendPrompts) => {
-    console.log(sendPrompts);
+    // console.log(sendPrompts);
     // let randomPrompt = sendPrompts.sort(() => .5 - Math.random()).slice(0,n)
     // db.Prompt.aggregate([{$sample:{size:1}}]).pretty();
     db.User.find().then((useUsers) => {
       console.log(useUsers);
-      useUser.forEach((user) =>
-        sendText(thoughts.message_text, user.phoneNumber)
+      useUsers.forEach((user) =>
+        sendText("This is a test", user.phoneNumber)
       );
-    }).catch(function () {
-      console.log("made a catch");
+    }).catch(function (err) {
+      console.log(err);
     });;
   });
 }
