@@ -55,6 +55,12 @@ function textUsers() {
     foundUsers.forEach(user => sendText("Hello There", user.phoneNumber))
   })
 }
+// function goodPrompt(){
+//   console.log("Prompt Loaded");
+//   db.Prompt.find().then((foundPrompts) = {
+//     foundPrompts.forEach(user => sendText({Prompt}, user.phoneNumber))
+//   })
+// }
 // db.Prompt.find which returns array.
 // chose one of the array randomly.
 // then db.User.find inside of it.
