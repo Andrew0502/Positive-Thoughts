@@ -40,17 +40,6 @@ const SignIn = () => {
         sessionStorage.setItem("userToken", response.data.data.token)
         history.push("/profile")
     }).catch(err => {throw err});
-    // if (!this.state.firstName || !this.state.lastName) {
-    //   alert("Fill out your first and last name please!");
-    // } else if (this.state.password.length < 6) {
-    //   alert(
-    //     `Choose a more secure password ${this.state.firstName} ${this.state
-    //       .lastName}`
-    //   );
-    // } else {
-    //   alert(`Hello ${this.state.firstName} ${this.state.lastName}`);
-    // }
-
     setState({
       email: "",
       password: "",
