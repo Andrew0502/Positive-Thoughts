@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
+import "../assets/main.css";
 
 const Prompts = () => {
   return (

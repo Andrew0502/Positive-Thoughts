@@ -23,9 +23,6 @@ const Navbar = () => {
             <Link to="./hotlines" className="nav-link">
               HotLines
             </Link>
-            <Link to="./logout" className="nav-link">
-              Log Out
-            </Link>
           </div>
         </div>
         <nav className="navbar navbar-dark bg-dark">

@@ -1,10 +1,23 @@
-h1,
-button,
-form {
+#sign-in-form{
+    vertical-align: middle;
+  }
+
+.sign-in-container {
   text-align: center;
+  width: 80%;
+  color: white;
 }
 
-/* input {
-  width: 25% !important;
+.sign-in-input {
+  width: 35%;
   margin: auto;
-} */
+}
+
+.sign-in-btn {
+  width: 15%;
+}
+
+#sign-in-btns {
+  text-align: center;
+  margin: auto;
+}

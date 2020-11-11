@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import { Link, useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import "./Edit.css";
+import "../assets/main.css"
 
 const Edit = () => {
   const [user, setUser] = useState({});
@@ -44,10 +45,10 @@ const Edit = () => {
     <body>
       <Navbar />
       <main className="content">
-        <div className="container">
+        <div className="container cover-container">
           <section className="row">
             <div className="col-sm-12">
-              <h1>Edit Profile</h1>
+              <h1 className="heading">Edit Profile</h1>
             </div>
           </section>
           <section className="row">
@@ -122,12 +123,16 @@ const Edit = () => {
             </section>
             <div><br/></div>
             <section className="row">
-            <Link type="submit" className="btn btn-primary edit-btn" to="/profile">
+              <div className="col-sm-6">
+            <Link type="submit" className="btn btn-primary edit-btn button" to="/profile">
               CANCEL
             </Link>
-            <button type="submit" className="btn btn-primary edit-btn">
+            </div>
+            <div className="col-sm-6">
+              <button type="submit" className="btn btn-primary edit-btn button">
                 UPDATE ACCOUNT
               </button>
+            </div>
           </section>
         </div>
       </main>

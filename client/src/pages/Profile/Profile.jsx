@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import { Link, useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API"; 
-import "./Profile.css"
+import "./Profile.css";
+import "../assets/main.css"
 
 
 function Profile() {
@@ -45,7 +46,7 @@ function Profile() {
     <body>
       <Navbar/>
       <main className="content">
-        <div className="container">
+        <div className="container cover-container">
           <section className="row">
             <div className="col-sm-12">
               <h1>Profile</h1>
@@ -82,18 +83,18 @@ function Profile() {
           </section>
           <div><br/></div>
           <section className="row">
-            <div className="col-sm-4">
-            <Link type="button" className="btn btn-primary edit-btn" to="/edit">
+            <div className="col-sm-6">
+            <Link type="button" className="btn btn-primary button profile-btn" id="edit-btn" to="/edit">
               EDIT PROFILE
             </Link>
             </div>
-            <div className="col-sm-8">
-            <button type="submit" className="btn btn-primary edit-btn" onClick={handleDelete}>
+            <div className="col-sm-6">
+            <button type="submit" className="btn btn-primary button profile-btn" id="delete-btn" onClick={handleDelete}>
               DELETE ACCOUNT
             </button>
             </div>
-            <div className="col-sm-8">
-            <button type="submit" className="btn btn-primary edit-btn" onClick={handleLogout}>
+            <div className="col-sm-12">
+            <button type="submit" className="btn btn-primary button profile-btn" id="sign-out-btn" onClick={handleLogout}>
               SIGN OUT
             </button>
             </div>
