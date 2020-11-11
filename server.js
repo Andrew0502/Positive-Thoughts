@@ -40,7 +40,11 @@ connection.on("error", (err) => {
 
 var CronJob = require("cron").CronJob;
 var job = new CronJob(
-  "* * * * *",
+       // CronJob manual minute hour dayMonth month dayWeek. example: "https://crontab.guru/".
+  "* * * * *",  // Every Minute
+  // "0 0 10,15/12 * * ?",  // 10:00 & 15:00 two times a day
+  // "*/5 * * * *", // Every 5min
+  // "* * 4 3 * ", // Vincent Birthday
   function () {
     // Change to time of day.
     console.log("Once a minute at this time 46 ");
