@@ -12,6 +12,10 @@ export default {
     return axios.get("/api/user/" + id);
   },
 
+    getPrompts: function(allPrompts) {
+      return axios.get("/api/prompts", allPrompts)
+    },
+
     login: function(email) {
       return axios.post("/api/user/login", email)
     },
