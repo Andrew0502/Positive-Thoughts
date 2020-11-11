@@ -15,9 +15,14 @@ function Profile() {
 
     useEffect(() =>{
       const id = sessionStorage.getItem("currentUsers")
+      if (id) {
         API.getUser(id)
         .then(res=>setUser(res.data.data))
         .catch(err=> console.log(err));
+      }
+        else {
+          history.push("/")
+        }
     }, [])
 
     const handleDelete = () => {
