@@ -43,6 +43,30 @@ const SignUp = () => {
           return 
         //can do other if statements here with first name required, etc.
         }
+        if (!state.firstName) {
+          alert("All fields required.  Please enter your first name");
+          return
+        }
+        if (!state.lastName) {
+          alert("All fields required.  Please enter your last name");
+          return
+        }
+        if (!state.birthday) {
+          alert("All fields required.  Please enter your date of birth so that we can remember your birthday!");
+          return
+        }
+        if (!state.phoneNumber) {
+          alert("All fields required.  Please enter your phone number so that we can text you Positive Thoughts!");
+          return
+        }
+        if (!state.password) {
+          alert("Please enter a password");
+          return
+        }
+        if (!state.email) {
+          alert("Please confirm your email address so that we can send you Positive Thoughts!");
+          return
+        }
         API.signup(state).then((response) => {   
             sessionStorage.setItem("currentUsers", response.data.data._id)
             //using the useHistory hook to redirect without refreshing
