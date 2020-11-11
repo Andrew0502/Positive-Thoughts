@@ -10,6 +10,14 @@ const SignIn = () => {
     email: "",
     password: "",
   });
+
+  useEffect(() =>{
+    const id = sessionStorage.getItem("currentUsers")
+    if (id) {
+     history.push("/profile")
+    }
+  }, [history])
+
   const handleInputChange = (event) => {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
