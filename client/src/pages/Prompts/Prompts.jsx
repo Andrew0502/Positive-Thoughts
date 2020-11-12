@@ -29,25 +29,17 @@ function Thoughts () {
       <Navbar />
       <div><br/></div>
       <div id="prompts">
-      {prompts && prompts.map(prompt => {
+      {thoughts && thoughts.map(Thought => {
         return (
-      <h3>{prompt.message_text}</h3>
-      <h1>Thoughts</h1>
-      <form>
-        <fieldset disabled>
-          <div class="form-group">
-            <label for="thoughts">Thoughts</label>
-            <div>
-                {thoughts && thoughts.map(Thought => {
-                  return (
-                    <div>{Thought.message_text}</div>
-                  )
-              })
-            }
-              </div>  
-          </div>
+      <h3>{Thought.message_text}</h3>
+        )
+      })
+    }
+  )
+}
+      </div>  
+    </div>
   );
 };
 
 export default Thoughts;
-<h1>thoughts</h1>;
