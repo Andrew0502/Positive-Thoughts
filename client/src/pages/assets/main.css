@@ -16,6 +16,11 @@ body {
     border-color: lightgray;
     /* float: right; */
 }
+.button:hover{
+  background-color: lightgray;
+  color: white;
+  border-color: lightgray;
+}
 
 .cover-container {
     text-align: center;
