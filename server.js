@@ -6,7 +6,8 @@ const PromptController = require("./controllers/promptControllers");
 const UserController = require("./controllers/UserController");
 const db = require("./models");
 const sendText = require("./send-sms");
-
+const CronJob = require("cron").CronJob;
+// const cronFile = require("./cron.js");
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -38,7 +39,7 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
-var CronJob = require("cron").CronJob;
+
 var job = new CronJob(
        // CronJob manual minute hour dayMonth month dayWeek. example: "https://crontab.guru/".
   "* * * * *",  // Every Minute
