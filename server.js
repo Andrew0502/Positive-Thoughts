@@ -39,19 +39,12 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
-
 var job = new CronJob(
-       // CronJob manual minute hour dayMonth month dayWeek. example: "https://crontab.guru/".
-  "* * * * *",  // Every Minute
+  // CronJob manual minute hour dayMonth month dayWeek. example: "https://crontab.guru/".
   // "0 0 10,15/12 * * ?",  // 10:00 & 15:00 two times a day
-  // "*/5 * * * *", // Every 5min
-  // "* * 4 3 * ", // Vincent Birthday
+  "* * * * *", // Every Minute
   function () {
-    // Change to time of day.
-    // console.log("You will see this message every minute"); //Call text users instead.
-    // sendThought();
     sendMeditation();
-    // textUsers();
     // call a function in here. query all of the users, finding the ones that opted in. Take the users info and send that to the twilio functionality.
   },
   null,
@@ -60,13 +53,13 @@ var job = new CronJob(
 );
 
 var job2 = new CronJob(
-"*/5 * * * *", // Every 5min
-function () {
-sendThought();
-},
-null,
-true,
-"America/New_York"
+  "*/5 * * * *", // Every 5min
+  function () {
+    sendThought();
+  },
+  null,
+  true,
+  "America/New_York"
 );
 
 app.get("/api/config", (req, res) => {
@@ -75,32 +68,36 @@ app.get("/api/config", (req, res) => {
   });
 });
 
-// function textUsers() {
-//   console.log("anything");
-//   db.User.find().then((foundUsers) => {
-//     foundUsers.forEach((user) => sendText("Hello There", user.phoneNumber));
-//   });
-// }
 function sendThought() {
-  db.Thought.aggregate([{$sample:{size:1}}]).then((sendThoughts) => {
-    db.User.find().then((useUsers) => {
-      useUsers.forEach((user) => sendText(sendThoughts[0].message_text, user.phoneNumber));
-    }).catch(function (err) {
-      console.log(err);
-      console.log("thoughtSent");
-    });;
+  db.Thought.aggregate([{ $sample: { size: 1 } }]).then((sendThoughts) => {
+    db.User.find()
+      .then((useUsers) => {
+        useUsers.forEach((user) =>
+          sendText(sendThoughts[0].message_text, user.phoneNumber)
+        );
+        console.log("thoughtSent");
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
   });
 }
 
 function sendMeditation() {
-  db.Meditation.aggregate([{$sample:{size:1}}]).then((sendMeditations) => {
-    db.User.find().then((useUsers) => {
-      useUsers.forEach((user) => sendText(sendMeditations[0].message_text, user.phoneNumber));
-    }).catch(function (err) {
-      console.log(err);
-      console.log("meditationSent");
-    });;
-  });
+  db.Meditation.aggregate([{ $sample: { size: 1 } }]).then(
+    (sendMeditations) => {
+      db.User.find()
+        .then((useUsers) => {
+          useUsers.forEach((user) =>
+            sendText(sendMeditations[0].message_text, user.phoneNumber)
+          );
+          console.log("meditationSent");
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+    }
+  );
 }
 
 app.get("*", (req, res) => {
