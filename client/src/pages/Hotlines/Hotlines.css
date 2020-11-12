@@ -12,3 +12,19 @@
 .PhoneNumbers {
     color: red;
 }
+
+@media only screen and (max-width: 375px){
+    #ContactInfo{
+        width: 90%;
+        padding: 20px;
+    }
+    .hotline-info{
+        font-size: 20px;
+    }
+    #seek-help{
+        font-size: 25px;
+    }
+    #not-alone{
+        font-size: 20px;
+    }
+}

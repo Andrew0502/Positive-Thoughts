@@ -91,7 +91,7 @@ const SignUp = () => {
       <div className="container sign-in-container">
         <section className="row">
           <div className="col-sm-12">
-            <h1>Sign up</h1>
+            <h1 className="welcome">Sign up</h1>
           </div>
         </section>
         <section className="row">

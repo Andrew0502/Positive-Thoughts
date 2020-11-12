@@ -24,19 +24,37 @@ body {
 
 .cover-container {
     text-align: center;
-    border-color: white;
+    border-color: rgba(255, 255, 255, 0.2);
     border-style: solid;
     width: 80%;
     margin: auto;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.2);
     color: black !important;
   }
 
   .heading{
     float: left;
+    color: white;
   }
 
-h1, h2, h3, h5, h6, p, nav, .nav-link, .button, .descriptions{
+  .color{
+    color: white;
+  }
+
+  .color:hover{
+    color: lightgray;
+  }
+
+h1, h2, h3, h5, h6, p, nav, li, .nav-link, .button, .descriptions, #about-desc{
     /* font-family: 'Merienda One', cursive; */
     font-family: 'Courgette', cursive;
+}
+
+@media only screen and (max-width: 375px) {
+.cover-container{
+  width: 90%;
+}
+$container-max-width: (
+  sm: 10px;
+)
 }

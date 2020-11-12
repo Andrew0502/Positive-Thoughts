@@ -7,7 +7,7 @@ mongoose.connect(
 
 const promptsSeed = [
   {
-    message_text: "Smell the flowers🌻",
+    message_text: "Smell the flowers 🌻",
   },
   {
     message_text:
