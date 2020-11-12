@@ -4,9 +4,9 @@ import "../assets/main.css";
 import { Link, useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API"; 
 
-function Prompts () {
+function Thoughts () {
 
-  const [prompts, setPrompts] = useState([])
+  const [thoughts, setThoughts] = useState([])
   const history = useHistory();
 
   useEffect(() =>{
@@ -14,7 +14,7 @@ function Prompts () {
     console.log(id);
     if (id) {
       API.getPrompts()
-      .then(res=>setPrompts(res.data.allPrompts))
+      .then(res=>setThoughts(res.data.allThoughts))
       .catch(err=> console.log(err));
     }
       else {
@@ -26,15 +26,15 @@ function Prompts () {
   return (
     <div>
       <Navbar />
-      <h1>Prompts</h1>
+      <h1>Thoughts</h1>
       <form>
         <fieldset disabled>
           <div class="form-group">
-            <label for="prompts">Prompts</label>
+            <label for="thoughts">Thoughts</label>
             <div>
-                {prompts && prompts.map(prompt => {
+                {thoughts && thoughts.map(Thought => {
                   return (
-                    <div>{prompt.message_text}</div>
+                    <div>{Thought.message_text}</div>
                   )
               })
             }
@@ -49,5 +49,5 @@ function Prompts () {
   );
 };
 
-export default Prompts;
-<h1>Prompts</h1>;
+export default Thoughts;
+<h1>thoughts</h1>;
