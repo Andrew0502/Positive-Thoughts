@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const thoughtsSchema = new Schema({
-  prompt: String,
+  prompt: {type: String},
 });
 
 const thoughts = mongoose.model("thoughts", thoughtsSchema);
