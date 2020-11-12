@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import "../assets/main.css";
 import { Link, useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API"; 
+import "./Prompts.css";
 
 function Prompts () {
 
@@ -26,26 +27,16 @@ function Prompts () {
   return (
     <div>
       <Navbar />
-      <h1>Prompts</h1>
-      <form>
-        <fieldset disabled>
-          <div class="form-group">
-            <label for="prompts">Prompts</label>
-            <div>
+      <div><br/></div>
+            <div id="prompts">
                 {prompts && prompts.map(prompt => {
                   return (
-                    <div>{prompt.message_text}</div>
+                    <h3>{prompt.message_text}</h3>
                   )
               })
             }
               </div>  
           </div>
-        </fieldset>
-        <button type="submit" class="btn btn-primary">
-          Like
-        </button>
-      </form>
-    </div>
   );
 };
 

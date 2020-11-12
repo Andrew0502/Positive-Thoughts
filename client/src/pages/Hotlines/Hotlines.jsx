@@ -9,24 +9,24 @@ const Hotlines = () => {
             <Navbar/>
             <div id="HotlineInfo">
                 <div><br/></div>
-                <h1>It's never a bad time to seek help</h1>
+                <h2>It's never a bad time to seek help</h2>
                 <div><br/></div>
-                <h1>YOU ARE NOT ALONE</h1>
+                <h3>YOU ARE NOT ALONE</h3>
                 <div><br/></div>
                 <div><br/></div>
                 <section id="ContactInfo">
                     <div><br/></div>
-                    <h3>National Suicide Prevention Lifeline Veterans Crisis Line</h3>
-                    <h3 class="PhoneNumbers">1-800-273-8255</h3>
+                    <h6>National Suicide Prevention Lifeline Veterans Crisis Line</h6>
+                    <h6 class="PhoneNumbers">1-800-273-8255</h6>
                     <div><br/></div>
-                    <h3>Georgia Crisis &amp; Access Line (GCAL)</h3>
-                    <h3 class="PhoneNumbers">1-800-715-4225</h3>
+                    <h6>Georgia Crisis &amp; Access Line (GCAL)</h6>
+                    <h6 class="PhoneNumbers">1-800-715-4225</h6>
                     <div><br/></div>
-                    <h3>TrevorLifeline</h3>
-                    <h3 class="PhoneNumbers">1-866-488-7386</h3>
+                    <h6>TrevorLifeline</h6>
+                    <h6 class="PhoneNumbers">1-866-488-7386</h6>
                     <div><br/></div>
-                    <h3>BlackLifeline</h3>
-                    <h3 class="PhoneNumbers">1-800-604-5841</h3>
+                    <h6>BlackLifeline</h6>
+                    <h6 class="PhoneNumbers">1-800-604-5841</h6>
                     <div><br/></div>
                 </section>
             </div>

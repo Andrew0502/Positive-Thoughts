@@ -5,7 +5,7 @@ import "../assets/main.css"
 
 const About = () => {
     return (
-        <body>
+        <div>
             <Navbar/>
         <main className="content">
             <div className="container">
@@ -19,7 +19,7 @@ const About = () => {
                 </div>
             </div>
         </main>
-        </body>
+        </div>
     );
 };
 

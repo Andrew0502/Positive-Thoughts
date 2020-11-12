@@ -10,7 +10,6 @@ import SignIn from "./pages/SignIn/SignIn.jsx";
 import SignUp from "./pages/SignUp/SignUp.jsx";
 import Edit from "./pages/Edit/Edit.jsx";
 import "./Background.css";
-// import Navbar from "./components/Navbar.jsx";
 
 function App() {
   useEffect(() => {
@@ -25,9 +24,8 @@ function App() {
       });
   }, []);
   return (
-    <body>
+    <div>
       <Router>
-        {/* <Navbar/> */}
         <div>
           <Switch>
             <Route exact path="/about" component={About} />
@@ -43,7 +41,7 @@ function App() {
       <div id='stars'></div>
       <div id='stars2'></div>
       <div id='stars3'></div>
-    </body>
+    </div>
   );
 }
 

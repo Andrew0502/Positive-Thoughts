@@ -42,7 +42,7 @@ const Edit = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <body>
+    <div>
       <Navbar />
       <main className="content">
         <div className="container cover-container">
@@ -137,7 +137,7 @@ const Edit = () => {
           </section>
         </div>
       </main>
-    </body>
+    </div>
   );
 };
 
