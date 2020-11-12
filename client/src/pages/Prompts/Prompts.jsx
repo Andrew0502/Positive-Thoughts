@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import "../assets/main.css";
 import { Link, useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API"; 
+import "./Prompts.css";
 
 function Thoughts () {
 
@@ -26,6 +27,11 @@ function Thoughts () {
   return (
     <div>
       <Navbar />
+      <div><br/></div>
+      <div id="prompts">
+      {prompts && prompts.map(prompt => {
+        return (
+      <h3>{prompt.message_text}</h3>
       <h1>Thoughts</h1>
       <form>
         <fieldset disabled>
@@ -40,12 +46,6 @@ function Thoughts () {
             }
               </div>  
           </div>
-        </fieldset>
-        <button type="submit" class="btn btn-primary">
-          Like
-        </button>
-      </form>
-    </div>
   );
 };
 

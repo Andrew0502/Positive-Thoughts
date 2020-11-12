@@ -35,7 +35,9 @@
     "mongoose": "^5.10.11",
     "node-sass": "^5.0.0",
     "path": "^0.12.7",
+    "react-perfect-scrollbar": "^1.5.8",
     "react-router-dom": "^5.2.0",
+    "react-scroll": "^1.8.1",
     "twilio": "^3.51.0"
   },
   "devDependencies": {

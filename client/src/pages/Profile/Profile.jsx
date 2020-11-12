@@ -43,7 +43,7 @@ function Profile() {
     
 
     return (
-    <body>
+    <div>
       <Navbar/>
       <main className="content">
         <div className="container cover-container">
@@ -103,7 +103,7 @@ function Profile() {
           <div><br/></div>
       </div>
       </main>
-    </body>
+    </div>
   );
 };
 
