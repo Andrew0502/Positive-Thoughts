@@ -85,9 +85,9 @@ function sendThought() {
   db.Thought.aggregate([{$sample:{size:1}}]).then((sendThoughts) => {
     db.User.find().then((useUsers) => {
       useUsers.forEach((user) => sendText(sendThoughts[0].message_text, user.phoneNumber));
+      console.log("thoughtSent");
     }).catch(function (err) {
       console.log(err);
-      console.log("thoughtSent");
     });;
   });
 }
@@ -96,9 +96,9 @@ function sendMeditation() {
   db.Meditation.aggregate([{$sample:{size:1}}]).then((sendMeditations) => {
     db.User.find().then((useUsers) => {
       useUsers.forEach((user) => sendText(sendMeditations[0].message_text, user.phoneNumber));
+      console.log("meditationSent");
     }).catch(function (err) {
       console.log(err);
-      console.log("meditationSent");
     });;
   });
 }

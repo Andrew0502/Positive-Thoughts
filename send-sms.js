@@ -6,7 +6,6 @@ const client = require("twilio")(accountSid, authToken);
 const db = require("./models")
 
 function sendText(message, number){
-  // console.log("test");
   client.messages
     .create({
       from: twilioNumber,
@@ -15,7 +14,7 @@ function sendText(message, number){
     })
     .then((call) => {
       // console.log(call);
-      console.log("Positive Message Sent");
+      console.log("Sending....");
     })
     .catch((err) => {
       console.log(err);
