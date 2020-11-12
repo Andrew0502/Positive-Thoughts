@@ -28,17 +28,15 @@ function Thoughts () {
     <div>
       <Navbar />
       <div><br/></div>
-      <div id="prompts">
-      {thoughts && thoughts.map(Thought => {
-        return (
-      <h3>{Thought.message_text}</h3>
-        )
-      })
-    }
-  )
-}
-      </div>  
-    </div>
+            <div id="prompts">
+                {thoughts && thoughts.map(Thought => {
+                  return (
+                    <li className="list-group-item" id="prompt-list">{Thought.message_text}</li>
+                  )
+              })
+            }
+              </div>  
+          </div>
   );
 };
 
