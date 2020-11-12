@@ -1,4 +1,5 @@
 module.exports = {
-    Prompt: require("./PromptModel"),
-    User: require("./UserModel")
+    Thought: require("./thoughtModel"),
+    User: require("./UserModel"),
+    Meditation: require("./meditationModel")
 }
