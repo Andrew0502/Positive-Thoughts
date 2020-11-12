@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-const PromptController = require("./controllers/promptControllers");
+const PromptController = require("./controllers/thoughtControllers");
 const UserController = require("./controllers/UserController");
 const db = require("./models");
 const sendText = require("./send-sms");
@@ -73,7 +73,7 @@ app.get("/api/config", (req, res) => {
 // }
 function sendPrompt() {
   // console.log("Prompt Loaded");
-  db.Prompt.aggregate([{$sample:{size:1}}]).then((sendPrompts) => {
+  db.Thought.aggregate([{$sample:{size:1}}]).then((sendPrompts) => {
     // console.log(sendPrompts);
     db.User.find().then((useUsers) => {
       // console.log(useUsers);

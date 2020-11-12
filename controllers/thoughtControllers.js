@@ -1,24 +1,24 @@
 const express = require("express");
-const db = require("../models/");
+const db = require("../models");
 
 const router = express.Router();
 
 //total route here /api/prompt
 router.get("/", (req, res) => {
-  db.Prompt.find({}).then((allPrompts) => {
-    console.log(allPrompts);
-    res.json({allPrompts: allPrompts});
+  db.Thought.find({}).then((allThoughts) => {
+    console.log(allThoughts);
+    res.json({allThoughts: allThoughts});
   }).catch(error => {
     console.log(error)
   })
 });
 
 router.post("/", (req, res) => {
-  const newPrompt = {
+  const newThought = {
     prompt: req.body.prompt,
   };
-  db.Prompt.create(newPrompt).then((newPrompt) => {
-    res.json(newPrompt);
+  db.Thought.create(newThought).then((newThought) => {
+    res.json(newThought);
   });
 });
 
