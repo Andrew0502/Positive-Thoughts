@@ -44,7 +44,7 @@ const Edit = () => {
   return (
     <div>
       <Navbar />
-      <main className="content">
+      <main className="content content-pad">
         <div className="container cover-container">
           <section className="row">
             <div className="col-sm-12">

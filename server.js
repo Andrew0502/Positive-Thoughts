@@ -39,20 +39,23 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
-
 var job = new CronJob(
-       // CronJob manual minute hour dayMonth month dayWeek. example: "https://crontab.guru/".
-  "* * * * *",  // Every Minute
+  // CronJob manual minute hour dayMonth month dayWeek. example: "https://crontab.guru/".
   // "0 0 10,15/12 * * ?",  // 10:00 & 15:00 two times a day
-  // "*/5 * * * *", // Every 5min
-  // "* * 4 3 * ", // Vincent Birthday
+  "* * * * *", // Every Minute
   function () {
-    // Change to time of day.
-    console.log("Once a minute at this time 46 ");
-    // console.log("You will see this message every minute"); //Call text users instead.
-    sendPrompt();
-    // textUsers();
+    sendMeditation();
     // call a function in here. query all of the users, finding the ones that opted in. Take the users info and send that to the twilio functionality.
+  },
+  null,
+  true,
+  "America/New_York"
+);
+
+var job2 = new CronJob(
+  "*/5 * * * *", // Every 5min
+  function () {
+    sendThought();
   },
   null,
   true,
@@ -65,35 +68,38 @@ app.get("/api/config", (req, res) => {
   });
 });
 
-// function textUsers() {
-//   console.log("anything");
-//   db.User.find().then((foundUsers) => {
-//     foundUsers.forEach((user) => sendText("Hello There", user.phoneNumber));
-//   });
-// }
-function sendPrompt() {
-  // console.log("Prompt Loaded");
-  db.Thought.aggregate([{$sample:{size:1}}]).then((sendPrompts) => {
-    // console.log(sendPrompts);
-    db.User.find().then((useUsers) => {
-      // console.log(useUsers);
-      // sendPrompts.forEach((thoughts) => )
-      useUsers.forEach((user) => sendText(sendPrompts[0].message_text, user.phoneNumber));
-    }).catch(function (err) {
-      console.log(err);
-    });;
+function sendThought() {
+  db.Thought.aggregate([{ $sample: { size: 1 } }]).then((sendThoughts) => {
+    db.User.find()
+      .then((useUsers) => {
+        useUsers.forEach((user) =>
+          sendText(sendThoughts[0].message_text, user.phoneNumber)
+        );
+        console.log("thoughtSent");
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
   });
 }
-// db.Prompt.find which returns array.
-// chose one of the array randomly.
-// then db.User.find inside of it.
-// this is for all users to recieve the same message.
-// one query inside the callback of another.
 
-    // let randomPrompt = sendPrompts.sort(() => .5 - Math.random()).slice(0,n)
-    // db.Prompt.aggregate([{$sample:{size:1}}]).pretty();
-    // const people = useUsers;
-    // const randomPrompt = Math.floor(Math.random() * sendPrompts.length);
+function sendMeditation() {
+  db.Meditation.aggregate([{ $sample: { size: 1 } }]).then(
+    (sendMeditations) => {
+      db.User.find()
+        .then((useUsers) => {
+          useUsers.forEach((user) =>
+            sendText(sendMeditations[0].message_text, user.phoneNumber)
+          );
+          console.log("meditationSent");
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+    }
+  );
+}
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
@@ -102,18 +108,3 @@ app.listen(PORT, () => {
   job.start();
   console.log(`App is running on http://localhost:${PORT}`);
 });
-
-
-// function sendPrompt() {
-//   console.log("Prompt Loaded");
-//   // db.Prompt.aggregate([{$sample:{size:1}}]).then((prompts) => {
-//     db.Prompt.find().then((prompts) => {
-//       console.log(prompts);
-//       for (var i = 0; i < thoughts.length; i++) {
-//         // if (prompts === thoughts[i].message_text) {
-//         //   return thoughts[i];
-//         // }
-//           return thoughts;
-          
-//       }
-//     }

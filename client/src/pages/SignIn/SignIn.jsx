@@ -47,11 +47,11 @@ const SignIn = () => {
   };
 
   return (
-    <main className="content">
+    <main className="content" id="sign-in-content">
       <div className="container sign-in-container">
         <section className="row">
           <div className="col-sm-12">
-            <h1>Welcome to Positive Thoughts</h1>
+            <h1 className="welcome">Welcome to Positive Thoughts</h1>
           </div>
         </section>
         <div><br/></div>

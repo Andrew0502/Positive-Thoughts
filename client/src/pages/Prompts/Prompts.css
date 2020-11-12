@@ -1,8 +1,31 @@
 #prompts{
-    border-color: white;
     border-style: solid;
+    border-color: white;
     width: 80%;
     margin: auto;
-    text-align: center;
     padding: 30px;
+}
+
+#prompt-list{
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.0001);
+        border-color: rgb(25,36,50);
+        border-width: 2px;
+        border-style: solid;
+        padding: 10px;
+}
+
+@media only screen and (max-width: 375px){
+    #prompts{
+        width: 90%;
+        padding: 10px;
+    }
+    #prompt-list{
+        font-size: 15px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.0001);
+        border-color: rgb(25,36,50);
+        border-width: 2px;
+        border-style: solid;
+    }
 }
