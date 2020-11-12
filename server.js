@@ -50,7 +50,8 @@ var job = new CronJob(
     // Change to time of day.
     console.log("Once a minute at this time 46 ");
     // console.log("You will see this message every minute"); //Call text users instead.
-    sendPrompt();
+    sendThought();
+    sendMeditation();
     // textUsers();
     // call a function in here. query all of the users, finding the ones that opted in. Take the users info and send that to the twilio functionality.
   },
@@ -71,14 +72,24 @@ app.get("/api/config", (req, res) => {
 //     foundUsers.forEach((user) => sendText("Hello There", user.phoneNumber));
 //   });
 // }
-function sendPrompt() {
+function sendThought() {
   // console.log("Prompt Loaded");
-  db.Thought.aggregate([{$sample:{size:1}}]).then((sendPrompts) => {
-    // console.log(sendPrompts);
+  db.Thought.aggregate([{$sample:{size:1}}]).then((sendThoughts) => {
+    // console.log(sendThoughts);
     db.User.find().then((useUsers) => {
       // console.log(useUsers);
-      // sendPrompts.forEach((thoughts) => )
-      useUsers.forEach((user) => sendText(sendPrompts[0].message_text, user.phoneNumber));
+      // sendThoughts.forEach((thoughts) => )
+      useUsers.forEach((user) => sendText(sendThoughts[0].message_text, user.phoneNumber));
+    }).catch(function (err) {
+      console.log(err);
+    });;
+  });
+}
+
+function sendMeditation() {
+  db.Meditation.aggregate([{$sample:{size:1}}]).then((sendMeditations) => {
+    db.User.find().then((useUsers) => {
+      useUsers.forEach((user) => sendText(sendMeditations[0].message_text, user.phoneNumber));
     }).catch(function (err) {
       console.log(err);
     });;
@@ -102,18 +113,3 @@ app.listen(PORT, () => {
   job.start();
   console.log(`App is running on http://localhost:${PORT}`);
 });
-
-
-// function sendPrompt() {
-//   console.log("Prompt Loaded");
-//   // db.Prompt.aggregate([{$sample:{size:1}}]).then((prompts) => {
-//     db.Prompt.find().then((prompts) => {
-//       console.log(prompts);
-//       for (var i = 0; i < thoughts.length; i++) {
-//         // if (prompts === thoughts[i].message_text) {
-//         //   return thoughts[i];
-//         // }
-//           return thoughts;
-          
-//       }
-//     }
