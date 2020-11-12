@@ -28,11 +28,13 @@ function Profile() {
 
     const handleDelete = () => {
       const id = sessionStorage.getItem("currentUsers")
+      if(window.confirm("Are you sure you want to delete?  We're sorry to see you go!")) {
         API.deleteUser(id)
           .then(res=>{sessionStorage.removeItem("currentUsers")
             history.push("/")})
           .catch(err=> console.log(err));
     }
+  }
 
     const handleLogout = () => {
       sessionStorage.removeItem("currentUsers")
