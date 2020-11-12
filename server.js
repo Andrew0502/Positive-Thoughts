@@ -48,9 +48,8 @@ var job = new CronJob(
   // "* * 4 3 * ", // Vincent Birthday
   function () {
     // Change to time of day.
-    console.log("Once a minute at this time 46 ");
     // console.log("You will see this message every minute"); //Call text users instead.
-    sendThought();
+    // sendThought();
     sendMeditation();
     // textUsers();
     // call a function in here. query all of the users, finding the ones that opted in. Take the users info and send that to the twilio functionality.
@@ -58,6 +57,16 @@ var job = new CronJob(
   null,
   true,
   "America/New_York"
+);
+
+var job2 = new CronJob(
+"*/5 * * * *", // Every 5min
+function () {
+sendThought();
+},
+null,
+true,
+"America/New_York"
 );
 
 app.get("/api/config", (req, res) => {
@@ -73,15 +82,12 @@ app.get("/api/config", (req, res) => {
 //   });
 // }
 function sendThought() {
-  // console.log("Prompt Loaded");
   db.Thought.aggregate([{$sample:{size:1}}]).then((sendThoughts) => {
-    // console.log(sendThoughts);
     db.User.find().then((useUsers) => {
-      // console.log(useUsers);
-      // sendThoughts.forEach((thoughts) => )
       useUsers.forEach((user) => sendText(sendThoughts[0].message_text, user.phoneNumber));
     }).catch(function (err) {
       console.log(err);
+      console.log("thoughtSent");
     });;
   });
 }
@@ -92,19 +98,11 @@ function sendMeditation() {
       useUsers.forEach((user) => sendText(sendMeditations[0].message_text, user.phoneNumber));
     }).catch(function (err) {
       console.log(err);
+      console.log("meditationSent");
     });;
   });
 }
-// db.Prompt.find which returns array.
-// chose one of the array randomly.
-// then db.User.find inside of it.
-// this is for all users to recieve the same message.
-// one query inside the callback of another.
 
-    // let randomPrompt = sendPrompts.sort(() => .5 - Math.random()).slice(0,n)
-    // db.Prompt.aggregate([{$sample:{size:1}}]).pretty();
-    // const people = useUsers;
-    // const randomPrompt = Math.floor(Math.random() * sendPrompts.length);
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
