@@ -9,6 +9,7 @@ import Prompts from "./pages/Prompts/Prompts.jsx";
 import SignIn from "./pages/SignIn/SignIn.jsx";
 import SignUp from "./pages/SignUp/SignUp.jsx";
 import Edit from "./pages/Edit/Edit.jsx";
+import "./Background.css";
 // import Navbar from "./components/Navbar.jsx";
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
           </Switch>
         </div>
       </Router>
+      <div id='stars'></div>
+      <div id='stars2'></div>
+      <div id='stars3'></div>
     </body>
   );
 }
