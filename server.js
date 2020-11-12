@@ -7,7 +7,7 @@ const UserController = require("./controllers/UserController");
 const db = require("./models");
 const sendText = require("./send-sms");
 const CronJob = require("cron").CronJob;
-const cronFile = require("cron.js");
+// const cronFile = require("./cron.js");
 const PORT = process.env.PORT || 3001;
 
 const app = express();

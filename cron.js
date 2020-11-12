@@ -1,3 +1,4 @@
+require("dotenv").config();
 const CronJob = require("cron").CronJob;
 
 var promptJob = new CronJob(
@@ -11,3 +12,4 @@ var promptJob = new CronJob(
 );
 
 // job.start();
+module.exports = cronFile;
