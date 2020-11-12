@@ -14,7 +14,7 @@ function sendText(message, number) {
     })
     .then((call) => {
       // console.log(call);
-      console.log("Sending....");
+      console.log("💃🕺");
     })
     .catch((err) => {
       console.log(err);
