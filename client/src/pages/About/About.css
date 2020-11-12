@@ -3,9 +3,26 @@ border-color: black;
 border-style: solid;
 width: 80%;
 margin: auto;
-padding: 3%;
+padding: 30px;
+text-align: center;
 }
 
 #about-title{
     text-align: center;
+    padding: 30px;
+}
+
+@media only screen and (max-width: 375px) {
+#about-title{
+    font-size: 30px;
+}
+
+#about-desc{
+    font-size: 20px;
+}
+
+.border{
+    width: 95%;
+    padding: 20px;
+}
 }

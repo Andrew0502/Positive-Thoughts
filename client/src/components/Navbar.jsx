@@ -15,19 +15,19 @@ const Navbar = () => {
         
         <div className="collapse" id="navbarToggleExternalContent">
           <div className="bg-dark p-4">
-            <Link to="./profile" className="nav-link">
+            <Link to="./profile" className="nav-link color">
               Profile
             </Link>
-            <Link to="./prompts" className="nav-link">
+            <Link to="./prompts" className="nav-link color">
               Prompts
             </Link>
-            <Link to="./hotlines" className="nav-link">
+            <Link to="./hotlines" className="nav-link color">
               Hotlines
             </Link>
           </div>
         </div>
         <nav className="navbar navbar-dark bg-dark" id="nav">
-            <Link to="./About" className="nav-link">
+            <Link to="./About" className="nav-link color">
               Positive Thoughts
             </Link>
             <Router>

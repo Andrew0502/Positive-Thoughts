@@ -1,7 +1,3 @@
-#sign-in-form{
-    vertical-align: middle;
-  }
-
 .sign-in-container {
   text-align: center;
   width: 80%;
@@ -20,4 +16,20 @@
 #sign-in-btns {
   text-align: center;
   margin: auto;
+}
+
+.welcome{
+  padding: 30px;
+}
+
+@media only screen and (max-width: 375px){
+  .sign-in-container{
+    font-size: 30px;
+  }
+  .sign-in-btn{
+    width: 35%;
+  }
+  .sign-in-input{
+    width:90%;
+  }
 }
