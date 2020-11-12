@@ -37,6 +37,14 @@ body {
     color: white;
   }
 
+  .color{
+    color: white;
+  }
+
+  .color:hover{
+    color: lightgray;
+  }
+
 h1, h2, h3, h5, h6, p, nav, li, .nav-link, .button, .descriptions, #about-desc{
     /* font-family: 'Merienda One', cursive; */
     font-family: 'Courgette', cursive;
