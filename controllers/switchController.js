@@ -1,24 +1,24 @@
-import React from "react";
-import { db } from "../models/UserModel";
-import thoughtJob from "../server";
+// import React from "react";
+// import { db } from "../models/UserModel";
+// import thoughtJob from "../server";
 
-function offOn() {
-  this.setState({ message_on: !this.state.message_on });
-  thoughtJob.stop();
-  // if(db.User.find(onclick) === true) {
-  if (db.thoughts.message_on === true) {
-    this.state = { message_on: true };
-    thoughtJob.start();
+// function offOn() {
+//   this.setState({ message_on: !this.state.message_on });
+//   thoughtJob.stop();
+//   // if(db.User.find(onclick) === true) {
+//   if (db.thoughts.message_on === true) {
+//     this.state = { message_on: true };
+//     thoughtJob.start();
 
-    console.log("On");
-  } else {
-    this.state = { message_on: false};
-    thoughtJob.stop();
-    console.log("Off");
-  }
-}
+//     console.log("On");
+//   } else {
+//     this.state = { message_on: false};
+//     thoughtJob.stop();
+//     console.log("Off");
+//   }
+// }
 
-export default switchController;
+// export default switchController;
 
 // constructor(props) {
 //     super(props);
