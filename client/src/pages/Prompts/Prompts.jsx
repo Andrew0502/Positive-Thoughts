@@ -4,6 +4,9 @@ import "../assets/main.css";
 import { Link, useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import "./Prompts.css";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Toggle from 'react-bootstrap-toggle';
 
 function Thoughts() {
   const [thoughts, setThoughts] = useState([]);
@@ -20,6 +23,15 @@ function Thoughts() {
       history.push("/");
     }
   }, []);
+
+  import React, { Component } from "react"; 
+  
+  class Thoughts extends Component {
+    
+    render() {
+     
+    }
+  }
 
   return (
     <div>
@@ -41,6 +53,7 @@ function Thoughts() {
         <input
           type="checkbox"
           className="custom-control-input"
+          onClick={sendThought}
           // id="customSwitch1"
         />
         <label className="custom-control-label" for="customSwitch1">
