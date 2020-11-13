@@ -51,100 +51,93 @@ const Edit = () => {
           </div>
         </section>
         <section className="row">
-          <div className="col-sm-12">
-            <form
-            onSubmit={handleFormSubmit}>
-              <div className="form-group">
-              <input
-                  value={user.firstName}
-                  name="firstName"
-                  type="text"
-                  className="form-control"
+        <div className="col-sm-12">
+              <h1 className="heading">Edit Profile</h1>
+            </div>
+          </section>
+          <div><br/></div>
+          <section className="row">
+            <form className="col-sm-6" onSubmit={handleFormSubmit}>
+                  <input value={user.firstName}
+                  name="firstName" type="text"
+                  className="form-control edit-inputs"
                   onChange={handleInputChange}
                   id="enterFirstName"
                   aria-describedby="emailHelp"
-                  placeholder="First Name"
-                />
-              </div>
-              <div className="form-group">
+                  placeholder="First Name"/>
+            </form>
+            <form className="col-sm-6" onSubmit={handleFormSubmit}>
               <input
                   value={user.lastName}
                   name="lastName"
                   type="text"
-                  className="form-control"
+                  className="form-control edit-inputs"
                   onChange={handleInputChange}
                   id="enterLastName"
                   aria-describedby="emailHelp"
                   placeholder="Last Name"
                 />
-              </div>
-              <div className="form-group">
-                <input
+            </form>
+            <div className="col-sm-12"><hr/></div>
+            <form className="col-sm-6" onSubmit={handleFormSubmit}>
+            <input
                   value={user.birthday}
                   name="birthday"
                   type="date"
-                  className="form-control"
+                  className="form-control edit-inputs"
                   onChange={handleInputChange}
                   id="exampleBirthday"
                   aria-describedby="emailHelp"
                   placeholder="birthday"
                 />
-              </div>
-              <div className="form-group">
-                <input
+            </form>
+            <form className="col-sm-6" onSubmit={handleFormSubmit}>
+            <input
                   value={user.phoneNumber}
                   name="phoneNumber"
                   type="text"
-                  className="form-control"
+                  className="form-control edit-inputs"
                   onChange={handleInputChange}
                   id="examplePhoneNumber"
                   placeholder="Phone Number"
                 />
-              </div>
-              <div className="form-group">
-                <input
+            </form>
+            <div className="col-sm-12"><hr/></div>
+            <form className="col-sm-6" onSubmit={handleFormSubmit}>
+            <input
                   value={user.password}
                   name="password"
                   type="password"
-                  //in twice so a user can confirm password
-                  className="form-control"
+                  className="form-control edit-inputs"
                   onChange={handleInputChange}
                   id="examplePassword"
                   placeholder="Password"
                 />
-              </div>
-              {/* <div className="form-group">
-                <input
-                  value={user.passwordConfirm}
-                  name="passwordConfirm"
-                  type="password"
-                  className="form-control"
-                  onChange={handleInputChange}
-                  id="exampleConfirmPassword"
-                  placeholder="Confirm Password"
-                />
-              </div> */}
-              <div className="form-group">
-                <input
+            </form>
+            <form className="col-sm-6" onSubmit={handleFormSubmit}>
+            <input
                   value={user.email}
                   name="email"
                   type="email"
-                  //only accepts a formatted date
-                  className="form-control"
+                  className="form-control edit-inputs"
                   onChange={handleInputChange}
                   id="userEmail"
                   placeholder="Email Address"
                 />
-              </div>
+              </form>
+              </section>
+            <div><br/></div>
+            <section className="row">
+              <div className="col-sm-6">
               <Link type="submit" className="btn btn-primary edit-btn button" to="/profile">
                 CANCEL
               </Link>
-              
+              </div>
+            <div className="col-sm-6">
               <button type="submit" className="btn btn-primary edit-btn button">
                 UPDATE ACCOUNT
               </button>
-            </form>
-          </div>
+              </div>
         </section>
       </div>
     </main>
