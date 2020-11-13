@@ -96,7 +96,8 @@ app.get("/api/config", (req, res) => {
 });
 
 function sendThought() {
-  db.Thought.aggregate([{ $sample: { size: 1 } }]).then((sendThoughts) => {
+  db.Thought.aggregate([{ $sample: { size: 1 } }]).then(
+    (sendThoughts) => {
     db.User.find()
       .then((useUsers) => {
         useUsers.forEach((user) =>
