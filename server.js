@@ -15,21 +15,20 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 app.use(express.static("client/build"));
 
 app.get("/job/:value", (req, res) => {
   console.log(req.params.value);
-  if( req.params.value == 1){
-    meditationJob.start(); 
+  if (req.params.value == 1) {
+    meditationJob.start();
     thoughtJob.start();
     upliftingJob.start();
-    res.json({success: true})
+    res.json({ success: true });
   } else {
-    meditationJob.stop(); 
+    meditationJob.stop();
     thoughtJob.stop();
     upliftingJob.stop();
-    res.json({success: false})
+    res.json({ success: false });
   }
 });
 app.use("/api/user", UserController);
@@ -71,7 +70,7 @@ var meditationJob = new CronJob(
 );
 
 var thoughtJob = new CronJob(
-  "* * * * *", // Every 5min
+  "*/5 * * * *", // Every 5min
   function () {
     sendThought();
   },
@@ -81,7 +80,7 @@ var thoughtJob = new CronJob(
 );
 
 var upliftingJob = new CronJob(
-  "* * * * *", // Every 10min
+  "*/10 * * * *", // Every 10min
   function () {
     sendUplifting();
   },
@@ -97,21 +96,18 @@ app.get("/api/config", (req, res) => {
 });
 
 function sendThought() {
-  if(db.Thought.message_on){
-    db.Thought.aggregate([{ $sample: { size: 1 } }]).then((sendThoughts) => {
-      db.User.find()
-        .then((useUsers) => {
-          useUsers.forEach((user) =>
-            sendText(sendThoughts[0].message_text, user.phoneNumber)
-          );
-          console.log("thoughtSent");
-        })
-        .catch(function (err) {
-          console.log(err);
-        });
-    });
-  }
-  
+  db.Thought.aggregate([{ $sample: { size: 1 } }]).then((sendThoughts) => {
+    db.User.find()
+      .then((useUsers) => {
+        useUsers.forEach((user) =>
+          sendText(sendThoughts[0].message_text, user.phoneNumber)
+        );
+        console.log("thoughtSent");
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  });
 }
 
 function sendMeditation() {
@@ -147,7 +143,6 @@ function sendUplifting() {
     }
   );
 }
-
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
