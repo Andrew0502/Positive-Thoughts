@@ -67,7 +67,7 @@ function Thoughts() {
             );
           })}
       </div>
-      <div className="custom-control custom-switch">
+      <div className="custom-control custom-switch" value="true">
         <input
           type="checkbox"
           className="custom-control-input"
