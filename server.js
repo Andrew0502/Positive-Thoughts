@@ -23,12 +23,12 @@ app.get("/job/:value", (req, res) => {
   if( req.params.value == 1){
     meditationJob.start(); 
     thoughtJob.start();
-    // sendUplifting.start();
+    upliftingJob.start();
     res.json({success: true})
   } else {
     meditationJob.stop(); 
     thoughtJob.stop();
-    // sendUplifting.stop();
+    upliftingJob.stop();
     res.json({success: false})
   }
 });
@@ -71,7 +71,7 @@ var meditationJob = new CronJob(
 );
 
 var thoughtJob = new CronJob(
-  "*/5 * * * *", // Every 5min
+  "* * * * *", // Every 5min
   function () {
     sendThought();
   },
@@ -81,7 +81,7 @@ var thoughtJob = new CronJob(
 );
 
 var upliftingJob = new CronJob(
-  "*/10 * * * *", // Every 10min
+  "* * * * *", // Every 10min
   function () {
     sendUplifting();
   },
