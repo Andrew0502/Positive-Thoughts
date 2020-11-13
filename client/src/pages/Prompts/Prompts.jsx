@@ -41,8 +41,8 @@ function Thoughts() {
         <input
           type="checkbox"
           className="custom-control-input"
-          onClick={this.offOn}
-          active={this.state.message_on}
+          onClick={offOn}
+          active={offOn}
           // id="customSwitch1"
         />
         <label className="custom-control-label" for="customSwitch1">
