@@ -19,7 +19,7 @@ app.use(express.static("client/build"));
 
 app.get("/job/:value", (req, res) => {
   console.log(req.params.value);
-  if (req.params.value == 1) {
+  if (req.params.value) {
     meditationJob.start();
     thoughtJob.start();
     upliftingJob.start();

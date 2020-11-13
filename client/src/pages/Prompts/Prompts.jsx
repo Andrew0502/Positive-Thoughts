@@ -8,7 +8,7 @@ import "./Prompts.css";
 function Thoughts() {
   const [thoughts, setThoughts] = useState([]);
   const history = useHistory();
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
 
   useEffect(() => {
     const id = sessionStorage.getItem("currentUsers");
@@ -30,7 +30,7 @@ function Thoughts() {
     // if(db.User.find(onclick) === true) {
     if (active) {
       setActive(false);
-      API.togglePrompts(null).then(res => {
+      API.togglePrompts(false).then(res => {
         console.log(res);
       }).catch(err => {
         console.log(err);
@@ -38,7 +38,7 @@ function Thoughts() {
       console.log("Off");
     } else {
         setActive (true);
-        API.togglePrompts(1).then(res => {
+        API.togglePrompts(true).then(res => {
           console.log(res);
         }).catch(err => {
           console.log(err);
@@ -74,6 +74,7 @@ function Thoughts() {
           onClick={offOn}
           active={active}
           id="customSwitch1"
+          checked={active}
         />
         <label className="custom-control-label" for="customSwitch1">
           Toggle this switch element

@@ -37,6 +37,6 @@ export default {
     },
 
     togglePrompts: function(value) {
-      return axios.get("/job/:value" + value);
+      return axios.get("/job/" + value);
     }
 }
