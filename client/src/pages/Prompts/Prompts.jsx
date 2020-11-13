@@ -37,7 +37,7 @@ function Thoughts() {
             );
           })}
       </div>
-      <div className="custom-control custom-switch">
+      {/* <div className="custom-control custom-switch">
         <input
           type="checkbox"
           className="custom-control-input"
@@ -46,7 +46,7 @@ function Thoughts() {
         <label className="custom-control-label" for="customSwitch1">
           Toggle this switch element
         </label>
-      </div>
+      </div> */}
     </div>
   );
 }
