@@ -1,5 +1,5 @@
-.content-pad{
-  padding:40px
+.content-pad {
+  padding: 40px;
 }
 
 .descriptions {
@@ -13,44 +13,48 @@
 }
 
 .profile-btn {
-    width: 50%;
-    height: 50px;
-    font-size: 20px;
-    text-align: center;
+  width: 50%;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
 }
 
-#edit-btn{
-align-content: center;
+#edit-btn {
+  align-content: center;
 }
 
-#delete-btn{
-align-content: center;
+#delete-btn {
+  align-content: center;
 }
 
-#sign-out-btn{
-align-content: center;
-width: 25%;
+#sign-out-btn {
+  align-content: center;
+  width: 25%;
 }
 
 @media only screen and (max-width: 768px) {
-.profile-btn{
-  font-size: 13px;
-}
+  .profile-btn {
+    font-size: 13px;
+  }
 }
 @media only screen and (max-width: 375px) {
-.heading{
-  font-size: 30px;
-}
-h4{
-  font-size: 18px;
-}
-.profile-btn{
-  width: 40%;
-  font-size: 13px;
-}
+  .heading {
+    font-size: 30px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+  .profile-btn {
+    width: 40%;
+    font-size: 13px;
+  }
 
-#sign-out-btn{
-align-content: center;
-width: 40%;
-}
+  #sign-out-btn {
+    align-content: center;
+    width: 40%;
+  }
+
+  .link-btn{
+    padding: 10px;
+  }
 }
