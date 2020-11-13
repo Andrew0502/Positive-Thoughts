@@ -55,7 +55,6 @@ connection.on("error", (err) => {
 
 var meditationJob = new CronJob(
   // CronJob manual minute hour dayMonth month dayWeek. example: "https://crontab.guru/".
-  // "0 0 10,15/12 * * ?",  // 10:00 & 15:00 two times a day
   "* * * * *", // Every Minute
   function () {
     sendMeditation();
@@ -70,6 +69,17 @@ var thoughtJob = new CronJob(
   "* * * * *", // Every 5min
   function () {
     sendThought();
+  },
+  null,
+  true,
+  "America/New_York"
+);
+
+
+var upliftingJob = new CronJob(
+  "10 * * * *", // Every 10min
+  function () {
+    sendUplifting();
   },
   null,
   true,
@@ -106,6 +116,23 @@ function sendMeditation() {
             sendText(sendMeditations[0].message_text, user.phoneNumber)
           );
           console.log("meditationSent");
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+    }
+  );
+}
+
+function sendUplifting() {
+  db.UpliftingQuotes.aggregate([{ $sample: { size: 1 } }]).then(
+    (sendUplifts) => {
+      db.User.find()
+        .then((useUsers) => {
+          useUsers.forEach((user) =>
+            sendText(sendUplifts[0].message_text, user.phoneNumber)
+          );
+          console.log("UpliftSent");
         })
         .catch(function (err) {
           console.log(err);
