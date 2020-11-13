@@ -76,7 +76,7 @@ var thoughtJob = new CronJob(
 );
 
 
-var job3 = new CronJob(
+var upliftingJob = new CronJob(
   "10 * * * *", // Every 10min
   function () {
     sendUplifting();
