@@ -29,6 +29,8 @@ app.get("/job/:value", (req, res) => {
     res.json({success: false})
   }
 });
+app.use("/api/user", UserController);
+// jobs run automatically. if you run localhost:3001/job/0 they will turn off. Running localhost:3001/job/1 will turn them back on.
 
 app.use("/api/prompts", PromptController);
 app.use("/api/user", UserController);
@@ -146,6 +148,8 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  // job.start();
+  // meditationJob.stop();
+  // thoughtJob.stop();
+  // upliftingJob.stop();
   console.log(`App is running on http://localhost:${PORT}`);
 });
