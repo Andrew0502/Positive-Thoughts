@@ -19,10 +19,11 @@ app.use(express.json());
 app.use(express.static("client/build"));
 
 app.get("/job/:value", (req, res) => {
-  if( req.params.value === 1){
+  console.log(req.params.value);
+  if( req.params.value == 1){
     meditationJob.start(); 
     thoughtJob.start();
-    sendUplifting.start();
+    // sendUplifting.start();
     res.json({success: true})
   } else {
     meditationJob.stop(); 
@@ -146,6 +147,7 @@ function sendUplifting() {
     }
   );
 }
+
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));

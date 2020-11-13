@@ -8,6 +8,7 @@ import "./Prompts.css";
 function Thoughts() {
   const [thoughts, setThoughts] = useState([]);
   const history = useHistory();
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     const id = sessionStorage.getItem("currentUsers");
@@ -20,6 +21,35 @@ function Thoughts() {
       history.push("/");
     }
   }, []);
+
+
+
+
+  function offOn() {
+    // this.setState({ message_on: !this.state.message_on });
+    // if(db.User.find(onclick) === true) {
+    if (active) {
+      setActive(false);
+      API.togglePrompts(null).then(res => {
+        console.log(res);
+      }).catch(err => {
+        console.log(err);
+      })
+      console.log("Off");
+    } else {
+        setActive (true);
+        API.togglePrompts(1).then(res => {
+          console.log(res);
+        }).catch(err => {
+          console.log(err);
+        })
+      console.log("On");
+    }
+  }
+
+
+
+
 
   return (
     <div>
@@ -37,16 +67,18 @@ function Thoughts() {
             );
           })}
       </div>
-      {/* <div className="custom-control custom-switch">
+      <div className="custom-control custom-switch">
         <input
           type="checkbox"
           className="custom-control-input"
-          // id="customSwitch1"
+          onClick={offOn}
+          active={active}
+          id="customSwitch1"
         />
         <label className="custom-control-label" for="customSwitch1">
           Toggle this switch element
         </label>
-      </div> */}
+      </div>
     </div>
   );
 }
