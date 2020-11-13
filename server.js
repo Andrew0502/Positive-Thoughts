@@ -63,7 +63,7 @@ var job2 = new CronJob(
 
 
 var job3 = new CronJob(
-  "0 0 10,15/12 * * ?",  // 10:00 & 15:00 two times a day
+  "10 * * * *", // Every 10min
   function () {
     sendUplifting();
   },
@@ -111,7 +111,7 @@ function sendMeditation() {
 }
 
 function sendUplifting() {
-  db.Uplift.aggregate([{ $sample: { size: 1 } }]).then(
+  db.UpliftingQuotes.aggregate([{ $sample: { size: 1 } }]).then(
     (sendUplifts) => {
       db.User.find()
         .then((useUsers) => {
