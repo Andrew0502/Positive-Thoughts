@@ -4,15 +4,17 @@ import thoughtJob from "../server";
 
 function offOn() {
   this.setState({ message_on: !this.state.message_on });
+  thoughtJob.stop();
   // if(db.User.find(onclick) === true) {
-  if (db.User.message_on === false) {
-    this.state = { message_on: false };
+  if (db.thoughts.message_on === true) {
+    this.state = { message_on: true };
+    thoughtJob.start();
+
+    console.log("On");
+  } else {
+    this.state = { message_on: false};
     thoughtJob.stop();
     console.log("Off");
-  } else {
-    this.state = { message_on: true};
-    thoughtJob.start();
-    console.log("On");
   }
 }
 

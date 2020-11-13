@@ -34,5 +34,9 @@ export default {
 
     activatePrompts: function(promptsName) {
       return axios.post("/api/user/" + promptsName);
+    },
+
+    togglePrompts: function(value) {
+      return axios.get("/job/" + value);
     }
 }
