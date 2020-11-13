@@ -30,5 +30,9 @@ export default {
 
     deleteUser: function(id) {
       return axios.delete("/api/user/" + id);
+    },
+
+    activatePrompts: function(promptsName) {
+      return axios.post("/api/user/" + promptsName);
     }
 }

@@ -22,10 +22,12 @@ app.get("/job/:value", (req, res) => {
   if( req.params.value === 1){
     meditationJob.start(); 
     thoughtJob.start();
+    sendUplifting.start();
     res.json({success: true})
   } else {
     meditationJob.stop(); 
     thoughtJob.stop();
+    sendUplifting.stop();
     res.json({success: false})
   }
 });
@@ -68,7 +70,7 @@ var meditationJob = new CronJob(
 );
 
 var thoughtJob = new CronJob(
-  "* * * * *", // Every 5min
+  "*/5 * * * *", // Every 5min
   function () {
     sendThought();
   },
@@ -77,9 +79,8 @@ var thoughtJob = new CronJob(
   "America/New_York"
 );
 
-
 var upliftingJob = new CronJob(
-  "10 * * * *", // Every 10min
+  "*/10 * * * *", // Every 10min
   function () {
     sendUplifting();
   },
@@ -95,18 +96,21 @@ app.get("/api/config", (req, res) => {
 });
 
 function sendThought() {
-  db.Thought.aggregate([{ $sample: { size: 1 } }]).then((sendThoughts) => {
-    db.User.find()
-      .then((useUsers) => {
-        useUsers.forEach((user) =>
-          sendText(sendThoughts[0].message_text, user.phoneNumber)
-        );
-        console.log("thoughtSent");
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-  });
+  if(db.Thought.message_on){
+    db.Thought.aggregate([{ $sample: { size: 1 } }]).then((sendThoughts) => {
+      db.User.find()
+        .then((useUsers) => {
+          useUsers.forEach((user) =>
+            sendText(sendThoughts[0].message_text, user.phoneNumber)
+          );
+          console.log("thoughtSent");
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+    });
+  }
+  
 }
 
 function sendMeditation() {
