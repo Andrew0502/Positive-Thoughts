@@ -27,7 +27,7 @@ app.get("/job/:value", (req, res) => {
   } else {
     meditationJob.stop(); 
     thoughtJob.stop();
-    sendUplifting.stop();
+    upliftingJob.stop();
     res.json({success: false})
   }
 });
