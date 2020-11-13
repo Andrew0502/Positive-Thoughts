@@ -94,7 +94,7 @@ function Profile() {
           <div><br/></div>
           <section className="row">
             <div className="col-sm-6">
-            <Link type="button" className="btn btn-primary button profile-btn" id="edit-btn" to="/edit">
+            <Link type="button" className="btn btn-primary button profile-btn link-btn" id="edit-btn" to="/edit">
               EDIT PROFILE
             </Link>
             </div>
@@ -110,20 +110,6 @@ function Profile() {
             </div>
           </section>
           <div><br/></div>
-
-            {/* <div className="col-sm-12">
-            <button type="radio" className="btn btn-primary button profile-btn" id="thoughts-btn" onClick={handleThought}>
-              Click this for daily Thoughts
-            </button>
-            </div>
-
-            <div className="col-sm-12">
-            <button type="radio" className="btn btn-primary button profile-btn" id="thoughts-btn" onClick={handleThought}>
-              Click this for daily Thoughts
-            </button>
-            </div> */}
-
-
       </div>
       </main>
     </div>
