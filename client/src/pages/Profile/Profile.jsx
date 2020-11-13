@@ -42,6 +42,10 @@ function Profile() {
       history.push("/")
     }
 
+    const handleJob = () => {
+
+    }
+
     
 
     return (
@@ -103,6 +107,14 @@ function Profile() {
             </div>
           </section>
           <div><br/></div>
+
+            <div className="col-sm-12">
+            <button type="submit" className="btn btn-primary button profile-btn" id="thoughts-btn" onClick={handleJob}>
+              Click this for daily Thoughts
+            </button>
+            </div>
+
+
       </div>
       </main>
     </div>

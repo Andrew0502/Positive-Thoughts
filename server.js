@@ -14,10 +14,24 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/api/prompts", PromptController);
-app.use("/api/user", UserController);
+
 
 app.use(express.static("client/build"));
+
+app.get("/job/:value", (req, res) => {
+  if( req.params.value === 1){
+    meditationJob.start(); 
+    thoughtJob.start();
+    res.json({success: true})
+  } else {
+    meditationJob.stop(); 
+    thoughtJob.stop();
+    res.json({success: false})
+  }
+});
+
+app.use("/api/prompts", PromptController);
+app.use("/api/user", UserController);
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/positive-thoughts",
@@ -39,7 +53,7 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
-var job = new CronJob(
+var meditationJob = new CronJob(
   // CronJob manual minute hour dayMonth month dayWeek. example: "https://crontab.guru/".
   "* * * * *", // Every Minute
   function () {
@@ -51,8 +65,8 @@ var job = new CronJob(
   "America/New_York"
 );
 
-var job2 = new CronJob(
-  "*/5 * * * *", // Every 5min
+var thoughtJob = new CronJob(
+  "* * * * *", // Every 5min
   function () {
     sendThought();
   },
@@ -132,6 +146,6 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  job.start();
+  // job.start();
   console.log(`App is running on http://localhost:${PORT}`);
 });
