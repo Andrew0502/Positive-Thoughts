@@ -4,6 +4,7 @@ import { Link, useParams, useHistory } from "react-router-dom";
 import API from "../../utils/API"; 
 import "./Profile.css";
 import "../assets/main.css";
+import axios from "axios";
 
 
 function Profile() {
@@ -42,9 +43,11 @@ function Profile() {
       history.push("/")
     }
 
-    const handleJob = () => {
-
-    }
+    // const handleThought = () => {
+    //   // const On = false;
+    //   // if()
+    //   // axios.get("/job/1")
+    // }
 
     
 
@@ -108,11 +111,17 @@ function Profile() {
           </section>
           <div><br/></div>
 
-            <div className="col-sm-12">
-            <button type="submit" className="btn btn-primary button profile-btn" id="thoughts-btn" onClick={handleJob}>
+            {/* <div className="col-sm-12">
+            <button type="radio" className="btn btn-primary button profile-btn" id="thoughts-btn" onClick={handleThought}>
               Click this for daily Thoughts
             </button>
             </div>
+
+            <div className="col-sm-12">
+            <button type="radio" className="btn btn-primary button profile-btn" id="thoughts-btn" onClick={handleThought}>
+              Click this for daily Thoughts
+            </button>
+            </div> */}
 
 
       </div>
