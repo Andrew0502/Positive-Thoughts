@@ -1,64 +1,28 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-
-import Hotlines from "../../src/pages/Hotlines/Hotlines";
-import About from "../pages/About/About";
-import Profile from "../pages/Profile/Profile";
-import Prompts from "../pages/Prompts/Prompts";
-import SignIn from "../pages/SignIn/SignIn";
-import SignUp from "../pages/SignUp/SignUp";
 
 const Navbar = () => {
   return (
     <div>
-      <div>
-        
-        <div className="collapse" id="navbarToggleExternalContent">
-          <div className="bg-dark p-4">
-            <Link to="./profile" className="nav-link color">
-              Profile
-            </Link>
-            <Link to="./prompts" className="nav-link color">
-              Prompts
-            </Link>
-            <Link to="./hotlines" className="nav-link color">
-              Hotlines
-            </Link>
-          </div>
-        </div>
-        <nav className="navbar navbar-dark bg-dark" id="nav">
-            <Link to="./About" className="nav-link color">
-              Positive Thoughts
-            </Link>
-            <Router>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarToggleExternalContent"
-              aria-controls="navbarToggleExternalContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <Switch>
-                <Route exact path="./" component={SignIn} />
-                <Route exact path="./about" component={About} />
-                <Route exact path="./hotlines" component={Hotlines} />
-                <Route exact path="./profile" component={Profile} />
-                <Route exact path="./prompts" component={Prompts} />
-                <Route exact path="./sign-up" component={SignUp} />
-              </Switch>
-            </div>
-          </Router>
-        </nav>
-      </div>
-    </div>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" className="nav-link color" href="./about">Positive Thoughts</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" className="nav-link color" href="./profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" className="nav-link color" href="./prompts">Prompts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" className="nav-link color" href="./hotlines">Hotlines</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>
   );
 };
 
