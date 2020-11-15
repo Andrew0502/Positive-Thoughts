@@ -56,7 +56,7 @@ function Profile() {
     <div>
       <Navbar />
       <main className="content content-pad">
-        <div className="container cover-container">
+        <div id="profilecontainer" className="container cover-container">
           <section className="row">
             <div className="col-sm-12">
               <h1 className="heading">Profile</h1>

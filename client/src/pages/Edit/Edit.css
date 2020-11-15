@@ -29,7 +29,7 @@
 
 @media only screen and (max-width: 768px) {
 .cover-container{
-  width: 95%;
+  width: 100%;
 }
 .edit-btn{
   font-size: 13px;
