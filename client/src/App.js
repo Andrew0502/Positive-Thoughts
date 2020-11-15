@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import About from "./pages/About/About.jsx";
 import Hotlines from "./pages/Hotlines/Hotlines.jsx";
+import HotlinesHelp from "./pages/Hotlines/HotlinesAlt.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Prompts from "./pages/Prompts/Prompts.jsx";
 import SignIn from "./pages/SignIn/SignIn.jsx";
@@ -30,6 +31,7 @@ function App() {
           <Switch>
             <Route exact path="/about" component={About} />
             <Route exact path="/hotlines" component={Hotlines} />
+            <Route exact path="/hotlines-help" component={HotlinesHelp} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/edit" component={Edit} />
             <Route exact path="/prompts" component={Prompts} />

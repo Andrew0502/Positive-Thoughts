@@ -22,6 +22,16 @@
   padding: 30px;
 }
 
+#hotlinebutton{
+  text-align: center;
+  margin: auto;
+}
+
+#hotlinelink{
+  width: 15%;
+  margin: auto;
+}
+
 @media only screen and (max-width: 375px){
   .sign-in-container{
     font-size: 30px;

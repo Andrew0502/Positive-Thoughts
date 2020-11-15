@@ -96,6 +96,14 @@ const SignIn = () => {
             </form>
         </section>
       </div>
+      <div><br/></div>
+      <div><br/></div>
+      <h3 id="seek-help" style={{textAlign:"center"}}>It's never a bad time to seek help</h3>
+      <div id="hotlinebutton">
+      <Link id="hotlinelink" type="submit" className="btn btn-primary edit-btn button link-btn" to="/hotlines-help">
+                Hotlines
+              </Link>
+      </div>
     </main>
   );
 };
