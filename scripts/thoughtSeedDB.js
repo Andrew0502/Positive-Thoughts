@@ -1,6 +1,5 @@
-const mongoose = require("mongoose");
-const db = require("../models");
-
+const mongoose = require("mongoose"),
+  db = require("../models");
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/positive-thoughts"
 );
@@ -69,11 +68,9 @@ const promptsSeed = [
 
 db.Thought.remove({})
   .then(() => db.Thought.collection.insertMany(promptsSeed))
-  .then((data) => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
+  .then((a) => {
+    console.log(a.result.n + " records inserted!"), process.exit(0);
   })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
+  .catch((a) => {
+    console.error(a), process.exit(1);
   });
