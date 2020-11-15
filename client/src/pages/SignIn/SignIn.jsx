@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link , useHistory} from "react-router-dom";
 import API from "../../utils/API";
 import "../assets/main.css"
+import AboutAlt from "../About/AboutAlt"
 
 
 const SignIn = () => {
@@ -104,6 +105,9 @@ const SignIn = () => {
                 Hotlines
               </Link>
       </div>
+      <div><br/></div>
+      <div><br/></div>
+      <AboutAlt/>
     </main>
   );
 };
