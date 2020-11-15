@@ -1,6 +1,13 @@
 import React from "react";
+import {useHistory } from "react-router-dom";
 
 const Navbar = () => {
+  const history = useHistory();
+  const navbarLogout = () => {
+    sessionStorage.removeItem("currentUsers");
+    sessionStorage.removeItem("userToken");
+    history.push("/");
+  };
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -18,6 +25,9 @@ const Navbar = () => {
       </li>
       <li class="nav-item">
         <a class="nav-link" className="nav-link color" href="./hotlines">Hotlines</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" className="nav-link color" href="./" onClick={navbarLogout}>Sign out</a>
       </li>
     </ul>
   </div>
