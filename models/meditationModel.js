@@ -1,11 +1,8 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-
-const meditationsSchema = new Schema({
-  message_text: {type: String},
-  message_on: {type: Boolean},
-});
-
-const meditations = mongoose.model("meditations", meditationsSchema);
-
+const mongoose = require("mongoose"),
+  Schema = mongoose.Schema,
+  meditationsSchema = new Schema({
+    message_text: { type: String },
+    message_on: { type: Boolean },
+  }),
+  meditations = mongoose.model("meditations", meditationsSchema);
 module.exports = meditations;
