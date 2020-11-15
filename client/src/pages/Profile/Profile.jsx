@@ -8,6 +8,7 @@ import axios from "axios";
 
 function Profile() {
   const [user, setUser] = useState({});
+  const [confirmDelete, setConfirmDelete] = useState(false)
 
   const { id } = useParams();
 
@@ -26,18 +27,14 @@ function Profile() {
 
   const handleDelete = () => {
     const id = sessionStorage.getItem("currentUsers");
-    if (
-      window.confirm(
-        "Are you sure you want to delete?  We're sorry to see you go!"
-      )
-    ) {
+   
       API.deleteUser(id)
         .then((res) => {
           sessionStorage.removeItem("currentUsers");
           history.push("/");
         })
         .catch((err) => console.log(err));
-    }
+    
   };
 
   const handleLogout = () => {
@@ -121,10 +118,17 @@ function Profile() {
                 type="submit"
                 className="btn btn-primary button profile-btn"
                 id="delete-btn"
-                onClick={handleDelete}
+                onClick={()=>setConfirmDelete(true)}
               >
                 DELETE ACCOUNT
               </button>
+              {confirmDelete && (
+        <>
+          <h3>Are you sure? Sorry to see you go!</h3>
+          <button className="btn btn-primary button profile-btn"onClick={handleDelete}>CONFIRM DELETE</button>
+        </>
+      )}
+
             </div>
             <div className="col-sm-12">
               <button
