@@ -39,7 +39,7 @@ const SignIn = () => {
         sessionStorage.setItem("currentUsers", response.data.data.foundUser._id)  
         sessionStorage.setItem("userToken", response.data.data.token)
         history.push("/profile")
-    }).catch(err => {throw err});
+    }).catch(err => {alert (err)});
     setState({
       email: "",
       password: "",
