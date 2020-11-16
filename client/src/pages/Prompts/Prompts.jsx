@@ -67,8 +67,9 @@ function Thoughts() {
           id="customSwitch1"
           checked={active}
         />
+        <div><br/></div>
         <label className="custom-control-label" for="customSwitch1">
-          Toggle this switch element
+          Turn texts on/off
         </label>
       </div>
     </div>

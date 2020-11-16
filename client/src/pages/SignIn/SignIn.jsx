@@ -52,6 +52,8 @@ const SignIn = () => {
         <section className="row">
           <div className="col-sm-12">
             <h1 className="welcome">Welcome to Positive Thoughts</h1>
+            <h4 id="about-desc">Sending you text messages of encouragement.
+                             </h4>
           </div>
         </section>
         <div><br/></div>
@@ -78,7 +80,7 @@ const SignIn = () => {
                 className="form-control sign-in-input"
                 id="exampleInputPassword1"
                 aria-describedby="passwordHelp"
-                placeholder="password"
+                placeholder="Password"
               />
             </div>
           <div id="sign-in-btns">

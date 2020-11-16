@@ -144,7 +144,7 @@ const SignUp = () => {
                   className="form-control sign-in-input"
                   onChange={handleInputChange}
                   id="examplePhoneNumber"
-                  placeholder="Phone Number"
+                  placeholder="Phone Number (ex: 5556667777)"
                 />
               </div>
               <div className="form-group">
