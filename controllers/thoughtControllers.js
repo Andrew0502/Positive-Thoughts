@@ -1,25 +1,19 @@
-const express = require("express");
-const db = require("../models");
-
-const router = express.Router();
-
-//total route here /api/prompt
-router.get("/", (req, res) => {
-  db.Thought.find({}).then((allThoughts) => {
-    console.log(allThoughts);
-    res.json({allThoughts: allThoughts});
-  }).catch(error => {
-    console.log(error)
-  })
-});
-
-router.post("/", (req, res) => {
-  const newThought = {
-    prompt: req.body.prompt,
-  };
-  db.Thought.create(newThought).then((newThought) => {
-    res.json(newThought);
-  });
-});
-
-module.exports = router;
+const express = require("express"),
+  db = require("../models"),
+  router = express.Router();
+router.get("/", (a, b) => {
+  db.Thought.find({})
+    .then((a) => {
+      console.log(a), b.json({ allThoughts: a });
+    })
+    .catch((a) => {
+      console.log(a);
+    });
+}),
+  router.post("/", (a, b) => {
+    const c = { prompt: a.body.prompt };
+    db.Thought.create(c).then((a) => {
+      b.json(a);
+    });
+  }),
+  (module.exports = router);

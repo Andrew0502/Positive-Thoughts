@@ -22,12 +22,7 @@ function Thoughts() {
     }
   }, []);
 
-
-
-
   function offOn() {
-    // this.setState({ message_on: !this.state.message_on });
-    // if(db.User.find(onclick) === true) {
     if (active) {
       setActive(false);
       API.togglePrompts(false).then(res => {
@@ -46,10 +41,6 @@ function Thoughts() {
       console.log("On");
     }
   }
-
-
-
-
 
   return (
     <div>
