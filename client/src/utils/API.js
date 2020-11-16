@@ -1,42 +1,27 @@
-// API methods to go to the backend.
-// import AXIOS and install it on front-end too
-// return axios.post
-
-// module.exports = whatever
-
 import axios from "axios";
-
 export default {
-
-    getUser: function(id) {
-    return axios.get("/api/user/" + id);
+  getUser: function (a) {
+    return axios.get("/api/user/" + a);
   },
-
-    getPrompts: function(allPrompts) {
-      return axios.get("/api/prompts", allPrompts)
-    },
-
-    login: function(email) {
-      return axios.post("/api/user/login", email)
-    },
-
-    signup: function(userData) {
-      return axios.post("/api/user/sign-up", userData)
-    },
-
-    editUser: function(id, body) {
-      return axios.put("/api/user/" + id, body);
-    },
-
-    deleteUser: function(id) {
-      return axios.delete("/api/user/" + id);
-    },
-
-    activatePrompts: function(promptsName) {
-      return axios.post("/api/user/" + promptsName);
-    },
-
-    togglePrompts: function(value) {
-      return axios.get("/job/" + value);
-    }
-}
+  getPrompts: function (a) {
+    return axios.get("/api/prompts", a);
+  },
+  login: function (a) {
+    return axios.post("/api/user/login", a);
+  },
+  signup: function (a) {
+    return axios.post("/api/user/sign-up", a);
+  },
+  editUser: function (a, b) {
+    return axios.put("/api/user/" + a, b);
+  },
+  deleteUser: function (a) {
+    return axios.delete("/api/user/" + a);
+  },
+  activatePrompts: function (a) {
+    return axios.post("/api/user/" + a);
+  },
+  togglePrompts: function (a) {
+    return axios.get("/job/" + a);
+  },
+};
