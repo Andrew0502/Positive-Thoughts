@@ -18,28 +18,37 @@
   margin: auto;
 }
 
-.welcome{
+.welcome {
   padding: 30px;
 }
 
-#hotlinebutton{
+#hotlinebutton {
   text-align: center;
   margin: auto;
 }
 
-#hotlinelink{
+#hotlinelink {
   width: 15%;
   margin: auto;
 }
 
-@media only screen and (max-width: 375px){
-  .sign-in-container{
+@media only screen and (max-width: 375px) {
+  .sign-in-container {
     font-size: 30px;
   }
-  .sign-in-btn{
+  .sign-in-btn {
     width: 35%;
   }
-  .sign-in-input{
-    width:90%;
+  .sign-in-input {
+    width: 90%;
+  }
+
+  #seek-help {
+    font-size: 23px;
+  }
+
+  #hotlinelink {
+    width: 30%;
+    font-size: 17px;
   }
 }

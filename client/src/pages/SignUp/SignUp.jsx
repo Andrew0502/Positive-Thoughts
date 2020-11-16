@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory} from "react-router-dom";
 import API from "../../utils/API";
 import "../assets/main.css"
+import NavbarAlt from "../../components/NavbarAlt"
 
 const SignUp = () => {
     const [state, setState] = useState({
@@ -88,6 +89,7 @@ const SignUp = () => {
 
   return (
     <main className="content">
+       <NavbarAlt/>
       <div className="container sign-in-container">
         <section className="row">
           <div className="col-sm-12">
