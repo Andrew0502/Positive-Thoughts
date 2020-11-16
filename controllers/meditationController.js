@@ -1,15 +1,13 @@
-const express = require("express");
-const db = require("../models");
-const router = express.Router();
-
-//total route here /api/prompt
-router.get("/", (req, res) => {
-  db.Meditation.find({}).then((allMeditations) => {
-    console.log(allMeditations);
-    res.json({allMeditations: allMeditations});
-  }).catch(error => {
-    console.log(error)
-  })
-});
-
-module.exports = router;
+const express = require("express"),
+  db = require("../models"),
+  router = express.Router();
+router.get("/", (a, b) => {
+  db.Meditation.find({})
+    .then((a) => {
+      console.log(a), b.json({ allMeditations: a });
+    })
+    .catch((a) => {
+      console.log(a);
+    });
+}),
+  (module.exports = router);
