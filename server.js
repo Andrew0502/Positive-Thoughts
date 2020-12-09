@@ -48,7 +48,7 @@ connection.on("connected", () => {
   });
 
 var meditationJob = new CronJob(
-    "*/5 * * * *",
+    "* */2 * * *",
     function () {
       sendMeditation();
     },
@@ -57,7 +57,7 @@ var meditationJob = new CronJob(
     "America/New_York"
   ),
   thoughtJob = new CronJob(
-    "* * * * *",
+    "* */3 * * *",
     function () {
       sendThought();
     },
@@ -66,7 +66,7 @@ var meditationJob = new CronJob(
     "America/New_York"
   ),
   upliftingJob = new CronJob(
-    "*/10 * * * *",
+    "* */5 * * *",
     function () {
       sendUplifting();
     },
